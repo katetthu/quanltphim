@@ -1,6 +1,7 @@
 ﻿using QuanLyMovies.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,10 +36,10 @@ namespace QuanLyMovies.Views
 
             //// Automatically resize height and width relative to content
             //this.SizeToContent = SizeToContent.WidthAndHeight;.
-
-            vm = new UtilViewModel();
-            DataContext = vm;
-        }
+                // lbds.DataContext = ocMH;
+                vm = new UtilViewModel();
+                DataContext = vm;
+            }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {

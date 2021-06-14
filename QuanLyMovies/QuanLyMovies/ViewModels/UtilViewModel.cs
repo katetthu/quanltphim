@@ -1,6 +1,7 @@
 ﻿using QuanLyMovies.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +15,21 @@ namespace QuanLyMovies.ViewModels
 
         static UtilViewModel()
         {
-            DSMovieProperty = DependencyProperty.Register("DSMovie", typeof(IList<Movie>), typeof(UtilViewModel));
+            DSMovieProperty = DependencyProperty.Register("DSMovie", typeof(IList<PHIM>), typeof(UtilViewModel));
         }
-        public IList<Movie> DSMovie
+        public IList<PHIM> DSMovie
         {
-            get => (IList<Movie>)GetValue(DSMovieProperty);
+            get => (IList<PHIM>)GetValue(DSMovieProperty);
             set => SetValue(DSMovieProperty, value);
         }
         public UtilViewModel()
         {
-            DSMovie = Enumerable.Range(0, 100).Select(i => new Movie()).ToList();
+            using (var qlsv = new QuanLyPhimEntities())
+            {
+                var ocMH = new List<PHIM>(qlsv.PHIMs.ToList());
+                DSMovie = Enumerable.Range(0, ocMH.Count()).Select(i => ocMH[i]).ToList();
+            }
+
         }
     }
 }
