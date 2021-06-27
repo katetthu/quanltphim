@@ -38,3 +38,9 @@ C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies_Content.g.cs
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.CopyComplete
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangKyView.g.cs
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangNhapView.g.cs
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangKyView.baml
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangNhapView.baml
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.g.cs
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.baml

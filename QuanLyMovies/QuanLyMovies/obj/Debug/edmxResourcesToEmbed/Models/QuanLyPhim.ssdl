@@ -5,12 +5,32 @@
       <PropertyRef Name="MAPHIM" />
     </Key>
     <Property Name="MAPHIM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MATHELOAI" Type="varchar" MaxLength="10" />
     <Property Name="TENPHIM" Type="nvarchar" MaxLength="50" />
     <Property Name="VIDEO" Type="varchar" MaxLength="50" />
-    <Property Name="HINHANH" Type="varchar" MaxLength="50" />
+    <Property Name="HINHANH" Type="varchar" MaxLength="200" />
     <Property Name="INFO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="EMAIL" />
+      <PropertyRef Name="PHONENUMBER" />
+    </Key>
+    <Property Name="EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PHONENUMBER" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TENNGUOIDUNG" Type="nvarchar" MaxLength="100" />
+    <Property Name="PASS" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="THELOAI">
+    <Key>
+      <PropertyRef Name="MATHELOAI" />
+    </Key>
+    <Property Name="MATHELOAI" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityContainer Name="QuanLyPhimModelStoreContainer">
     <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

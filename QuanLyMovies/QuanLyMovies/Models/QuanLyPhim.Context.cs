@@ -13,10 +13,10 @@ namespace QuanLyMovies.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyPhimEntities : DbContext
+    public partial class QuanLyPhimEntities1 : DbContext
     {
-        public QuanLyPhimEntities()
-            : base("name=QuanLyPhimEntities")
+        public QuanLyPhimEntities1()
+            : base("name=QuanLyPhimEntities1")
         {
         }
     
@@ -26,5 +26,7 @@ namespace QuanLyMovies.Models
         }
     
         public virtual DbSet<PHIM> PHIMs { get; set; }
+        public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<THELOAI> THELOAIs { get; set; }
     }
 }

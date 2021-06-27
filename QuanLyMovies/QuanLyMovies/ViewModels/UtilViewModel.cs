@@ -24,10 +24,14 @@ namespace QuanLyMovies.ViewModels
         }
         public UtilViewModel()
         {
-            using (var qlsv = new QuanLyPhimEntities())
+            using (var qlsv = new QuanLyPhimEntities1())
             {
-                var ocMH = new List<PHIM>(qlsv.PHIMs.ToList());
-                DSMovie = Enumerable.Range(0, ocMH.Count()).Select(i => ocMH[i]).ToList();
+
+                var list = new List<PHIM>(qlsv.PHIMs.ToList());
+
+                DSMovie = Enumerable.Range(0, list.Count()).Select(i => list[i]).ToList();
+
+
             }
 
         }

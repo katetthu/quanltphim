@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities">
+  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities1">
     <EntitySetMapping Name="PHIMs">
       <EntityTypeMapping TypeName="QuanLyPhimModel.PHIM">
         <MappingFragment StoreEntitySet="PHIM">
           <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
+          <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
           <ScalarProperty Name="TENPHIM" ColumnName="TENPHIM" />
           <ScalarProperty Name="VIDEO" ColumnName="VIDEO" />
           <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
           <ScalarProperty Name="INFO" ColumnName="INFO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIKHOANs">
+      <EntityTypeMapping TypeName="QuanLyPhimModel.TAIKHOAN">
+        <MappingFragment StoreEntitySet="TAIKHOAN">
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="TENNGUOIDUNG" ColumnName="TENNGUOIDUNG" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THELOAIs">
+      <EntityTypeMapping TypeName="QuanLyPhimModel.THELOAI">
+        <MappingFragment StoreEntitySet="THELOAI">
+          <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
+          <ScalarProperty Name="TENTHELOAI" ColumnName="TENTHELOAI" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

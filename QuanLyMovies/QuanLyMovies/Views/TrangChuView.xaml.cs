@@ -39,6 +39,8 @@ namespace QuanLyMovies.Views
                 // lbds.DataContext = ocMH;
                 vm = new UtilViewModel();
                 DataContext = vm;
+
+                
             }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)

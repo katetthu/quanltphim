@@ -82,7 +82,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THELOAI.cs">
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\UtilViewModel.cs" />
+    <Compile Include="Views\DangKyView.xaml.cs">
+      <DependentUpon>DangKyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DangNhapView.xaml.cs">
+      <DependentUpon>DangNhapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuenPassView.xaml.cs">
+      <DependentUpon>QuenPassView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TrangChuView.xaml.cs">
       <DependentUpon>TrangChuView.xaml</DependentUpon>
     </Compile>
@@ -90,6 +105,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DangKyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DangNhapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuenPassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TrangChuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,11 +140,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <EntityDeploy Include="Models\QuanLyPhim.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QuanLyPhim.Designer.cs</LastGenOutput>
@@ -125,29 +147,194 @@
     <None Include="Models\QuanLyPhim.edmx.diagram">
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImageMovies\1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="ImageMovies\2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="InfoMovies\1.txt" />
+    <Resource Include="InfoMovies\10.txt" />
+    <Resource Include="InfoMovies\11.txt" />
+    <Resource Include="InfoMovies\12.txt" />
+    <Resource Include="InfoMovies\13.txt" />
+    <Resource Include="InfoMovies\14.txt" />
+    <Resource Include="InfoMovies\15.txt" />
+    <Resource Include="InfoMovies\16.txt" />
+    <Resource Include="InfoMovies\17.txt" />
+    <Resource Include="InfoMovies\18.txt" />
+    <Resource Include="InfoMovies\19.txt" />
+    <Resource Include="InfoMovies\2.txt" />
+    <Resource Include="InfoMovies\20.txt" />
+    <Resource Include="InfoMovies\21.txt" />
+    <Resource Include="InfoMovies\22.txt" />
+    <Resource Include="InfoMovies\23.txt" />
+    <Resource Include="InfoMovies\24.txt" />
+    <Resource Include="InfoMovies\25.txt" />
+    <Resource Include="InfoMovies\26.txt" />
+    <Resource Include="InfoMovies\27.txt" />
+    <Resource Include="InfoMovies\28.txt" />
+    <Resource Include="InfoMovies\29.txt" />
+    <Resource Include="InfoMovies\3.txt" />
+    <Resource Include="InfoMovies\30.txt" />
+    <Resource Include="InfoMovies\31.txt" />
+    <Resource Include="InfoMovies\32.txt" />
+    <Resource Include="InfoMovies\33.txt" />
+    <Resource Include="InfoMovies\34.txt" />
+    <Resource Include="InfoMovies\35.txt" />
+    <Resource Include="InfoMovies\36.txt" />
+    <Resource Include="InfoMovies\37.txt" />
+    <Resource Include="InfoMovies\38.txt" />
+    <Resource Include="InfoMovies\39.txt" />
+    <Resource Include="InfoMovies\4.txt" />
+    <Resource Include="InfoMovies\40.txt" />
+    <Resource Include="InfoMovies\41.txt" />
+    <Resource Include="InfoMovies\42.txt" />
+    <Resource Include="InfoMovies\43.txt" />
+    <Resource Include="InfoMovies\44.txt" />
+    <Resource Include="InfoMovies\45.txt" />
+    <Resource Include="InfoMovies\46.txt" />
+    <Resource Include="InfoMovies\47.txt" />
+    <Resource Include="InfoMovies\48.txt" />
+    <Resource Include="InfoMovies\49.txt" />
+    <Resource Include="InfoMovies\5.txt" />
+    <Resource Include="InfoMovies\50.txt" />
+    <Resource Include="InfoMovies\51.txt" />
+    <Resource Include="InfoMovies\52.txt" />
+    <Resource Include="InfoMovies\53.txt" />
+    <Resource Include="InfoMovies\54.txt" />
+    <Resource Include="InfoMovies\55.txt" />
+    <Resource Include="InfoMovies\56.txt" />
+    <Resource Include="InfoMovies\6.txt" />
+    <Resource Include="InfoMovies\7.txt" />
+    <Resource Include="InfoMovies\8.txt" />
+    <Resource Include="InfoMovies\9.txt" />
+    <Content Include="VideoMovies\1.mp4" />
+    <Content Include="VideoMovies\10.mp4" />
+    <Content Include="VideoMovies\11.mp4" />
+    <Content Include="VideoMovies\12.mp4" />
+    <Content Include="VideoMovies\13.mp4" />
+    <Content Include="VideoMovies\14.mp4" />
+    <Content Include="VideoMovies\15.mp4" />
+    <Content Include="VideoMovies\16.mp4" />
+    <Content Include="VideoMovies\17.mp4" />
+    <Content Include="VideoMovies\18.mp4" />
+    <Content Include="VideoMovies\19.mp4" />
+    <Content Include="VideoMovies\2.mp4" />
+    <Content Include="VideoMovies\20.mp4" />
+    <Content Include="VideoMovies\21.mp4" />
+    <Content Include="VideoMovies\22.mp4" />
+    <Content Include="VideoMovies\23.mp4" />
+    <Content Include="VideoMovies\24.mp4" />
+    <Content Include="VideoMovies\25.mp4" />
+    <Content Include="VideoMovies\26.mp4" />
+    <Content Include="VideoMovies\27.mp4" />
+    <Content Include="VideoMovies\28.mp4" />
+    <Content Include="VideoMovies\29.mp4" />
+    <Content Include="VideoMovies\3.mp4" />
+    <Content Include="VideoMovies\30.mp4" />
+    <Content Include="VideoMovies\31.mp4" />
+    <Content Include="VideoMovies\32.mp4" />
+    <Content Include="VideoMovies\33.mp4" />
+    <Content Include="VideoMovies\34.mp4" />
+    <Content Include="VideoMovies\35.mp4" />
+    <Content Include="VideoMovies\36.mp4" />
+    <Content Include="VideoMovies\37.mp4" />
+    <Content Include="VideoMovies\38.mp4" />
+    <Content Include="VideoMovies\39.mp4" />
+    <Content Include="VideoMovies\4.mp4" />
+    <Content Include="VideoMovies\40.mp4" />
+    <Content Include="VideoMovies\41.mp4" />
+    <Content Include="VideoMovies\42.mp4" />
+    <Content Include="VideoMovies\43.mp4" />
+    <Content Include="VideoMovies\44.mp4" />
+    <Content Include="VideoMovies\45.mp4" />
+    <Content Include="VideoMovies\46.mp4" />
+    <Content Include="VideoMovies\47.mp4" />
+    <Content Include="VideoMovies\48.mp4" />
+    <Content Include="VideoMovies\49.mp4" />
+    <Content Include="VideoMovies\5.mp4" />
+    <Content Include="VideoMovies\50.mp4" />
+    <Content Include="VideoMovies\51.mp4" />
+    <Content Include="VideoMovies\52.mp4" />
+    <Content Include="VideoMovies\53.mp4" />
+    <Content Include="VideoMovies\54.mp4" />
+    <Content Include="VideoMovies\55.mp4" />
+    <Content Include="VideoMovies\56.mp4" />
+    <Content Include="VideoMovies\6.mp4" />
+    <Content Include="VideoMovies\7.mp4" />
+    <Content Include="VideoMovies\8.mp4" />
+    <Content Include="VideoMovies\9.mp4" />
+    <Resource Include="ImageMovies\1.jpg" />
+    <Resource Include="ImageMovies\10.jpg" />
+    <Resource Include="ImageMovies\11.jpg" />
+    <Resource Include="ImageMovies\12.jpg" />
+    <Resource Include="ImageMovies\13.jpg" />
+    <Resource Include="ImageMovies\14.jpg" />
+    <Resource Include="ImageMovies\15.jpg" />
+    <Resource Include="ImageMovies\16.jpg" />
+    <Resource Include="ImageMovies\17.jpg" />
+    <Resource Include="ImageMovies\18.jpg" />
+    <Resource Include="ImageMovies\19.jpg" />
+    <Resource Include="ImageMovies\2.jpg" />
+    <Resource Include="ImageMovies\20.jpg" />
+    <Resource Include="ImageMovies\21.jpg" />
+    <Resource Include="ImageMovies\22.jpg" />
+    <Resource Include="ImageMovies\23.jpg" />
+    <Resource Include="ImageMovies\24.jpg" />
+    <Resource Include="ImageMovies\25.jpg" />
+    <Resource Include="ImageMovies\26.jpg" />
+    <Resource Include="ImageMovies\27.jpg" />
+    <Resource Include="ImageMovies\28.jpg" />
+    <Resource Include="ImageMovies\29.jpg" />
+    <Resource Include="ImageMovies\3.jpg" />
+    <Resource Include="ImageMovies\30.jpg" />
+    <Resource Include="ImageMovies\31.jpg" />
+    <Resource Include="ImageMovies\32.jpg" />
+    <Resource Include="ImageMovies\33.jpg" />
+    <Resource Include="ImageMovies\34.jpg" />
+    <Resource Include="ImageMovies\35.jpg" />
+    <Resource Include="ImageMovies\36.jpg" />
+    <Resource Include="ImageMovies\37.jpg" />
+    <Resource Include="ImageMovies\38.jpg" />
+    <Resource Include="ImageMovies\39.jpg" />
+    <Resource Include="ImageMovies\4.jpg" />
+    <Resource Include="ImageMovies\40.jpg" />
+    <Resource Include="ImageMovies\41.jpg" />
+    <Resource Include="ImageMovies\42.jpg" />
+    <Resource Include="ImageMovies\43.jpg" />
+    <Resource Include="ImageMovies\44.jpg" />
+    <Resource Include="ImageMovies\45.jpg" />
+    <Resource Include="ImageMovies\46.jpg" />
+    <Resource Include="ImageMovies\47.jpg" />
+    <Resource Include="ImageMovies\48.jpg" />
+    <Resource Include="ImageMovies\49.jpg" />
+    <Resource Include="ImageMovies\5.jpg" />
+    <Resource Include="ImageMovies\50.jpg" />
+    <Resource Include="ImageMovies\51.jpg" />
+    <Resource Include="ImageMovies\52.jpg" />
+    <Resource Include="ImageMovies\53.jpg" />
+    <Resource Include="ImageMovies\54.jpg" />
+    <Resource Include="ImageMovies\55.jpg" />
+    <Resource Include="ImageMovies\56.jpg" />
+    <Resource Include="ImageMovies\6.jpg" />
+    <Resource Include="ImageMovies\7.jpg" />
+    <Resource Include="ImageMovies\8.jpg" />
+    <Resource Include="ImageMovies\9.jpg" />
     <Content Include="Models\QuanLyPhim.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QuanLyPhim.Context.cs</LastGenOutput>
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhim.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\QuanLyPhim.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>
       <LastGenOutput>QuanLyPhim.cs</LastGenOutput>
     </Content>
-    <Content Include="VideoMovies\1.mp4" />
-    <Content Include="VideoMovies\2.mp4" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

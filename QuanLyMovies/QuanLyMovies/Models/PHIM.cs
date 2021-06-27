@@ -15,9 +15,11 @@ namespace QuanLyMovies.Models
     public partial class PHIM
     {
         public string MAPHIM { get; set; }
+        public string MATHELOAI { get; set; }
         public string TENPHIM { get; set; }
         public string VIDEO { get; set; }
         public string HINHANH { get; set; }
         public string INFO { get; set; }
     }
+
 }
