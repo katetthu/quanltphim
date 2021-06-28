@@ -1,6 +1,7 @@
 ﻿using QuanLyMovies.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class TrangChuView : Window
     {
-        UtilViewModel vm;
+         UtilViewModel vm;
         public TrangChuView()
         {
             InitializeComponent();
@@ -35,10 +36,12 @@ namespace QuanLyMovies.Views
 
             //// Automatically resize height and width relative to content
             //this.SizeToContent = SizeToContent.WidthAndHeight;.
+                // lbds.DataContext = ocMH;
+                vm = new UtilViewModel();
+                DataContext = vm;
 
-            vm = new UtilViewModel();
-            DataContext = vm;
-        }
+                
+            }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -53,5 +56,6 @@ namespace QuanLyMovies.Views
             var me = grid.FindName("video") as MediaElement;
             me?.Stop();
         }
+
     }
 }

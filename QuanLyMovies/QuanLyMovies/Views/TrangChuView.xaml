@@ -7,6 +7,7 @@
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         mc:Ignorable="d"
         Title="TrangChuView" Height="700" Width="1000" 
+        
         WindowStartupLocation="CenterScreen" 
         SizeToContent="WidthAndHeight" Foreground="White" >
     <Window.Resources>
@@ -15,9 +16,8 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
-        <DataTemplate DataType="{x:Type m:Movie}">
-            <Grid Margin="3" Height="72" Width="128" MouseEnter="Grid_MouseEnter" 
-                  MouseLeave="Grid_MouseLeave">
+        <DataTemplate DataType="{x:Type m:PHIM}">
+            <Grid Margin="3" Height="72" Width="128" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
                 <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
                     ,Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid},
                     Path=Height}" RadiusX="2" RadiusY="2">
@@ -32,12 +32,12 @@
                 
                 <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
                         Background="White">
-                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image Source="{Binding Image}" Stretch="Fill"
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Source="{Binding HINHANH}" Stretch="Fill"
                            Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
                                  ,Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid},
                                    Path=Height}" Opacity="30"/>
-                        <MediaElement Name="video" Source="{Binding Video}" LoadedBehavior="Manual"/>
+                        <MediaElement Name="video" Source="{Binding VIDEO}" LoadedBehavior="Manual"/>
                     </Grid>
                 </Border>
 
@@ -156,10 +156,25 @@
                     </Setter>
                 </Style>
             </StackPanel.Resources>
-            <Label>Top Thịnh Hành</Label>
+            <GroupBox BorderThickness="0">
+                <GroupBox.Header>
+                    <TextBlock Name="TheLoai" Text="Top Thịnh Hành" FontSize="20"/>
+                </GroupBox.Header>
+                <ItemsControl ItemsSource="{Binding DSMovie}" />
+            </GroupBox>
+            <GroupBox BorderThickness="0">
+                <GroupBox.Header>
+                    <TextBlock Text="Tình Cảm" FontSize="20"/>
+                </GroupBox.Header>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </GroupBox>
+            <GroupBox BorderThickness="0">
+                <GroupBox.Header>
+                    <TextBlock Text="Hành Động" FontSize="20"/>
+                </GroupBox.Header>
+                <ItemsControl ItemsSource="{Binding DSMovie}"/>
+            </GroupBox>
 
-            <ItemsControl ItemsSource="{Binding DSMovie}"/>
         </StackPanel>
-
     </StackPanel>
 </Window>
