@@ -64,9 +64,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Pass.cs" />
     <Compile Include="Models\PHIM.cs">
       <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\Proper.cs" />
     <Compile Include="Models\QuanLyPhim.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

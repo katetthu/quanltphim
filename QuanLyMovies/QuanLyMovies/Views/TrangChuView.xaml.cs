@@ -21,7 +21,7 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class TrangChuView : Window
     {
-        UtilViewModel vm;
+         UtilViewModel vm;
         public TrangChuView()
         {
             InitializeComponent();
@@ -56,5 +56,6 @@ namespace QuanLyMovies.Views
             var me = grid.FindName("video") as MediaElement;
             me?.Stop();
         }
+
     }
 }

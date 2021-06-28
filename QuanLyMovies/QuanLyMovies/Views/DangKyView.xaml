@@ -4,11 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
+        xmlns:m ="clr-namespace:QuanLyMovies.Models" d:DataContext="{d:DesignInstance Type=m:TAIKHOAN}" 
         mc:Ignorable="d"
         Title="DangKyView" Height="700" Width="1000" 
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
-    <Border Width="400" Height="600" BorderBrush="DarkBlue" BorderThickness="3">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="errorTemplate">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
+                          FontWeight="Bold">!</TextBlock>
+                <Border BorderBrush="Red" BorderThickness="3" >
+                    <Grid>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"
+                               VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Padding="4"/>
+                    </Grid>
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border Width="400" Height="600" 
+            BorderBrush="DarkBlue" BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -23,11 +41,31 @@
             <TextBlock FontSize="40" Margin="5" HorizontalAlignment="Center" >Sign Up</TextBlock>
             <StackPanel Grid.Row="1" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Email</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
+                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" 
+                          Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="EMAIL" ValidatesOnDataErrors="True"
+                                 NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <m:Email></m:Email>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Phone number</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
+                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" 
+                         Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="PHONENUMBER" ValidatesOnDataErrors="True"
+                                 NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <m:Phone></m:Phone>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Name</TextBlock>
