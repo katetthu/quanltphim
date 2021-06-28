@@ -11,12 +11,79 @@ namespace QuanLyMovies.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TAIKHOAN
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
+    public partial class TAIKHOAN : INotifyPropertyChanged
     {
-        public string EMAIL { get; set; }
-        public string PHONENUMBER { get; set; }
-        public string TENNGUOIDUNG { get; set; }
-        public string PASS { get; set; }
+        string email;
+        int phonenumber;
+        string pass;
+        string name;
+
+        public string EMAIL
+        {
+            get => email;
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                    OnPropertyChanged();
+                }
+            }
+
+        }
+        public int PHONENUMBER {
+            get => phonenumber;
+            set
+            {
+                if (phonenumber != value)
+                {
+                    phonenumber = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string TENNGUOIDUNG {
+            get => name;
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string PASS {
+            get => pass;
+            set
+            {
+                if (pass != value)
+                {
+                    pass = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected virtual bool OnPropertyChanged<T>(ref T backingField, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (EqualityComparer<T>.Default.Equals(backingField, value))
+                return false;
+
+            backingField = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
     }
 }

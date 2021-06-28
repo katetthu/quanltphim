@@ -17,7 +17,7 @@
       <PropertyRef Name="PHONENUMBER" />
     </Key>
     <Property Name="EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="PHONENUMBER" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PHONENUMBER" Type="int" Nullable="false" />
     <Property Name="TENNGUOIDUNG" Type="nvarchar" MaxLength="100" />
     <Property Name="PASS" Type="varchar" MaxLength="30" />
   </EntityType>

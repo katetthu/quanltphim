@@ -24,7 +24,7 @@ namespace QuanLyMovies.ViewModels
         }
         public UtilViewModel()
         {
-            using (var qlsv = new QuanLyPhimEntities1())
+            using (var qlsv = new QuanLyPhimEntities2())
             {
 
                 var list = new List<PHIM>(qlsv.PHIMs.ToList());

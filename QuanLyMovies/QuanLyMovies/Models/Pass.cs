@@ -13,7 +13,7 @@ namespace QuanLyMovies.Models
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            Regex regex = new Regex(@"^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$ ");
+            Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
             Match match = regex.Match(value.ToString());
             var kq = new ValidationResult(true, null);
             if (match == null || match == Match.Empty)

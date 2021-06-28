@@ -21,5 +21,4 @@ namespace QuanLyMovies.Models
         public string HINHANH { get; set; }
         public string INFO { get; set; }
     }
-
 }

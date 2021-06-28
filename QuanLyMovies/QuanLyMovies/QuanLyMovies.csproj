@@ -70,7 +70,6 @@
       <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Phone.cs" />
-    <Compile Include="Models\Proper.cs" />
     <Compile Include="Models\QuanLyPhim.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +216,16 @@
     <Resource Include="InfoMovies\7.txt" />
     <Resource Include="InfoMovies\8.txt" />
     <Resource Include="InfoMovies\9.txt" />
+    <Content Include="Models\QuanLyPhim.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhim.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QuanLyPhim.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhim.cs</LastGenOutput>
+    </Content>
     <Content Include="VideoMovies\1.mp4" />
     <Content Include="VideoMovies\10.mp4" />
     <Content Include="VideoMovies\11.mp4" />
@@ -329,16 +338,6 @@
     <Resource Include="ImageMovies\7.jpg" />
     <Resource Include="ImageMovies\8.jpg" />
     <Resource Include="ImageMovies\9.jpg" />
-    <Content Include="Models\QuanLyPhim.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
-      <LastGenOutput>QuanLyPhim.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\QuanLyPhim.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
-      <LastGenOutput>QuanLyPhim.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
