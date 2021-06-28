@@ -17,7 +17,7 @@
       <PropertyRef Name="PHONENUMBER" />
     </Key>
     <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PHONENUMBER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PHONENUMBER" Type="Int32" Nullable="false" />
     <Property Name="TENNGUOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="PASS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
@@ -28,7 +28,7 @@
     <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="QuanLyPhimEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyPhimEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
     <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
     <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />

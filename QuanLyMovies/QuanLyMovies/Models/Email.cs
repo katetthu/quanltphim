@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace QuanLyMovies.Models
 {
-    public class Email : ValidationRule
+    class Email : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

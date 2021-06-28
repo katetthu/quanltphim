@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
-        xmlns:m ="clr-namespace:QuanLyMovies.Models" d:DataContext="{d:DesignInstance Type=m:TAIKHOAN}" 
+        xmlns:m ="clr-namespace:QuanLyMovies.Models"
         mc:Ignorable="d"
         Title="DangKyView" Height="700" Width="1000" 
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
-
+    <Window.DataContext>
+        <m:TAIKHOAN/>
+    </Window.DataContext>
     <Window.Resources>
         <ControlTemplate x:Key="errorTemplate">
             <DockPanel LastChildFill="True">
@@ -73,7 +75,18 @@
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Password</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
+
+                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" 
+                         Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="PHONENUMBER" ValidatesOnDataErrors="True"
+                                 NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <m:Pass></m:Pass>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <StackPanel Grid.Row="5" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Confirm password</TextBlock>
