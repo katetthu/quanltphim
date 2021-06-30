@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
         mc:Ignorable="d"
-        Title="DangNhapView" Height="700" Width="1000" 
+        Title="DangNhapView" Height="700" Width="1000" WindowState="Maximized"
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
     <Border Width="400" Height="500" BorderBrush="DarkBlue" BorderThickness="3">
@@ -29,10 +29,10 @@
                 <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
             </StackPanel>
             <Button Grid.Row="3" FontSize="20" FontWeight="Bold" Margin="10,20,10,10" 
-                    Background="Red" Foreground="White">Sign In</Button>
+                    Background="Red" Foreground="White" Click="Button_Click">Sign In</Button>
             <StackPanel Grid.Row="5" Orientation="Horizontal">
                 <Button Width="152" Margin="5" Background="Black" 
-                    Foreground="White" FontSize="15" BorderBrush="Black">Forgot password</Button>
+                    Foreground="White" FontSize="15" BorderBrush="Black" Click="Button_Click_1">Forgot password</Button>
                 <Button Width="100" Margin="5" Background="Black" 
                     Foreground="White" FontSize="15" BorderBrush="Black">Sign Up</Button>
             </StackPanel>

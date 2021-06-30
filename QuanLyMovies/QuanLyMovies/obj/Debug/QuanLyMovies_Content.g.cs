@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlyphim.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlyphim.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/1.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/10.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/11.mp4")]
@@ -64,7 +66,5 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/7.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/8.mp4")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("videomovies/9.mp4")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlyphim.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/quanlyphim.tt")]
 
 

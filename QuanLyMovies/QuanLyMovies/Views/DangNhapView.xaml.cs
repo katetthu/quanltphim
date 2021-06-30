@@ -24,5 +24,17 @@ namespace QuanLyMovies.Views
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var wdn = new TrangChuView();
+            wdn.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var wdn = new QuenPassView();
+            wdn.Show();
+        }
     }
 }
