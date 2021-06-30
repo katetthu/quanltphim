@@ -24,5 +24,13 @@ namespace QuanLyMovies.Views
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
         }
+
+        private void btnNextTab_Click(object sender, RoutedEventArgs e)
+        {
+            int newIndex = tcSample.SelectedIndex + 1;
+            if (newIndex >= tcSample.Items.Count)
+                newIndex = 0;
+            tcSample.SelectedIndex = newIndex;
+        }
     }
 }

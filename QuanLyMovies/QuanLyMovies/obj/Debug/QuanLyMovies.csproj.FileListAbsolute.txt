@@ -19,7 +19,6 @@ C:\Users\GIATHU\Desktop\QuanLyMovies\QuanLyMovies\obj\Debug\GeneratedInternalTyp
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.exe.config
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.exe
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.pdb
-C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csprojAssemblyReference.cache
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\TrangChuView.g.cs
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\App.g.cs
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -44,3 +43,10 @@ C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangNhapView.baml
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.g.cs
 C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.baml
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\AdminView.g.cs
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\AdminView.baml
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\Newtonsoft.Json.dll
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\Newtonsoft.Json.xml
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.AssemblyReference.cache
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ManHinhChinh.g.cs
+C:\Users\GIATHU\Desktop\New folder (2)\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ManHinhChinh.baml

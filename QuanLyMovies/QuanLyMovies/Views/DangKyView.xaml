@@ -5,11 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
+        xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
         mc:Ignorable="d"
         Title="DangKyView" Height="700" Width="1000" 
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
-    <Window.DataContext>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="2,5">
+            <Button Name="btnNextTab" Click="btnNextTab_Click">Next</Button>
+        </StackPanel>
+        <TabControl Name="tcSample">
+            <TabItem Header="General">
+                <Label Content="Content goes here..." />
+            </TabItem>
+            <TabItem Header="Security" />
+            <TabItem Header="Details" />
+        </TabControl>
+
+    </DockPanel>
+    <!--<Window.DataContext>
         <m:TAIKHOAN/>
     </Window.DataContext>
     <Window.Resources>
@@ -95,5 +109,5 @@
             <Button Grid.Row="6" FontSize="20" FontWeight="Bold" Margin="10,20,10,10" 
                     Background="Red" Foreground="White">Register</Button>
         </Grid>
-    </Border>
+    </Border>-->
 </Window>
