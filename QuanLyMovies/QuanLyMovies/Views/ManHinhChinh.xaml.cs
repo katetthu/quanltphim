@@ -22,11 +22,18 @@ namespace QuanLyMovies.Views
         public ManHinhChinh()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var wdn = new DangNhapView();
+            wdn.Show();
+        }
+
+        private void btDangKy(object sender, RoutedEventArgs e)
+        {
+            var wdn = new DangKyView();
             wdn.Show();
         }
     }

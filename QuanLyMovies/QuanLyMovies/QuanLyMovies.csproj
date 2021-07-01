@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Pass.cs" />
     <Compile Include="Models\PHIM.cs">
@@ -178,6 +179,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Views\back.png" />
     <Resource Include="InfoMovies\1.txt" />
     <Resource Include="InfoMovies\10.txt" />
     <Resource Include="InfoMovies\11.txt" />
@@ -239,6 +241,10 @@
     <Resource Include="Image2.png" />
     <Resource Include="logo.png" />
     <Resource Include="background.jpg" />
+    <Resource Include="check.PNG" />
+    <Resource Include="checknotround.PNG" />
+    <Resource Include="logobgwhite.PNG" />
+    <Resource Include="cost.PNG" />
     <Content Include="Models\QuanLyPhim.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>

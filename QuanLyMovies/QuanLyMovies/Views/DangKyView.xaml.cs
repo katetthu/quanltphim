@@ -19,10 +19,12 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class DangKyView : Window
     {
+        
         public DangKyView()
         {
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
+
         }
 
         private void btnNextTab_Click(object sender, RoutedEventArgs e)
@@ -30,6 +32,14 @@ namespace QuanLyMovies.Views
             int newIndex = tcSample.SelectedIndex + 1;
             if (newIndex >= tcSample.Items.Count)
                 newIndex = 0;
+            tcSample.SelectedIndex = newIndex;
+        }
+
+        private void btnBackTab_Click(object sender, RoutedEventArgs e)
+        {
+            int newIndex = tcSample.SelectedIndex - 1;
+            if (newIndex < 0)
+                newIndex = tcSample.Items.Count - 1;
             tcSample.SelectedIndex = newIndex;
         }
     }
