@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
+        
+        xmlns:m ="clr-namespace:QuanLyMovies.Models"
          mc:Ignorable="d" Height="5550.9" Width="1920" WindowState="Maximized"
          WindowStartupLocation="CenterScreen">
     <!--<Window.Resources>
@@ -93,6 +95,19 @@
         </ResourceDictionary>
     </Window.Resources>-->
     <Window.Resources>
+        <ControlTemplate x:Key="errorTemplate">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
+                          FontWeight="Bold">!</TextBlock>
+                <Border BorderBrush="Red" BorderThickness="3" >
+                    <Grid>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"
+                               VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Padding="4"/>
+                    </Grid>
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -176,6 +191,9 @@
         </Style>
     </Window.Resources>
 
+    <Window.DataContext>
+        <m:TAIKHOAN/>
+    </Window.DataContext>
     <ScrollViewer>
         <Grid Background="#FF222222">
             <Grid.RowDefinitions>
@@ -237,12 +255,22 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBox Height="80" Width="700" FontSize="30" Margin="0,20,0,0"
-                             VerticalContentAlignment="Center" Padding="10,10,0,0"/>
+                             VerticalContentAlignment="Center" Padding="10,10,0,0" x:Name="txtEmail"
+                                     Validation.ErrorTemplate="{StaticResource errorTemplate}">
+                                <TextBox.Text>
+                                    <Binding Path="EMAIL" ValidatesOnDataErrors="True"
+                                 NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <m:Email></m:Email>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
                             <Label Width="150" Foreground="Gray" Height="54" Margin="10,10,540,46"
                            HorizontalContentAlignment="Left" FontSize="20">
                                 Email address</Label>
                             <Button Height="80" Width="250" Margin="0,25,0,5" Background="Red"
-                            Foreground="White" FontSize="35" Grid.Column="1" >
+                            Foreground="White" FontSize="35" Grid.Column="1" Click="btDangKy">
                                 Get Started &gt;
                             </Button>
                         </Grid>
@@ -555,7 +583,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBox Height="80" Width="700" FontSize="30" Margin="0,20,0,0"
-                             VerticalContentAlignment="Center" Padding="10,10,0,0"/>
+                             VerticalContentAlignment="Center" Padding="10,10,0,0" IsReadOnly="True"/>
                         <Label Width="150" Foreground="Gray" Height="54" Margin="10,10,540,46"
                            HorizontalContentAlignment="Left" FontSize="20">
                             Email address</Label>

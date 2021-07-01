@@ -18,7 +18,7 @@ namespace QuanLyMovies.Models
             var kq = new ValidationResult(true, null);
             if (match == null || match == Match.Empty)
             {
-                kq = new ValidationResult(false, "Email không hợp lệ");
+                kq = new ValidationResult(false, "Email invalid !");
             }
             return kq;
         }
