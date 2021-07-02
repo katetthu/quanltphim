@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
         mc:Ignorable="d"
-         Title="QuenMatKhau" Height="700" Width="1000" 
+         Title="QuenMatKhau" Height="700" Width="1000" ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
     <Border Width="500" Height="500" BorderBrush="DarkBlue" BorderThickness="3">

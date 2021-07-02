@@ -9,7 +9,7 @@
         Title="TrangChuView" Height="700" Width="1000" 
         
         WindowStartupLocation="CenterScreen" 
-        SizeToContent="WidthAndHeight" Foreground="White" >
+        SizeToContent="WidthAndHeight" Foreground="White"  WindowState="Maximized">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="20"/>
@@ -17,7 +17,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <DataTemplate DataType="{x:Type m:PHIM}">
-            <Grid Margin="3" Height="72" Width="128" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+            <Grid Margin="10" Height="300" Width="220" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
                 <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
                     ,Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid},
                     Path=Height}" RadiusX="2" RadiusY="2">
@@ -107,9 +107,9 @@
                 <Image Width="50" Margin="5"/>
             </StackPanel>
         </Grid>
-        
 
-        <StackPanel Grid.Row="1">
+        <ScrollViewer Height="620">
+            <StackPanel Grid.Row="1">
             <StackPanel.Resources>
                 <Style TargetType="ItemsControl">
                     <Setter Property="ItemsPanel">
@@ -176,5 +176,7 @@
             </GroupBox>
 
         </StackPanel>
+    </ScrollViewer>
     </StackPanel>
+       
 </Window>

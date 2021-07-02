@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QuanLyPhimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LOAITHANHTOAN">
+    <Key>
+      <PropertyRef Name="MALOAITHANHTOAN" />
+    </Key>
+    <Property Name="MALOAITHANHTOAN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAITHANHTOAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GIATIEN" Type="Double" />
+  </EntityType>
   <EntityType Name="PHIM">
     <Key>
       <PropertyRef Name="MAPHIM" />
     </Key>
     <Property Name="MAPHIM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TENPHIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="VIDEO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="HINHANH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -15,11 +23,15 @@
     <Key>
       <PropertyRef Name="EMAIL" />
       <PropertyRef Name="PHONENUMBER" />
+      <PropertyRef Name="SOTAIKHOAN" />
     </Key>
     <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PHONENUMBER" Type="Int32" Nullable="false" />
+    <Property Name="SOTAIKHOAN" Type="Double" Nullable="false" />
     <Property Name="TENNGUOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYHETHAN" Type="DateTime" Precision="0" />
     <Property Name="PASS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TENLOAITHANHTOAN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>
@@ -28,7 +40,8 @@
     <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="QuanLyPhimEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyPhimEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
     <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
     <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
     <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />

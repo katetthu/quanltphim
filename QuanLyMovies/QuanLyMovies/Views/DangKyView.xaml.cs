@@ -42,5 +42,10 @@ namespace QuanLyMovies.Views
                 newIndex = tcSample.Items.Count - 1;
             tcSample.SelectedIndex = newIndex;
         }
+
+        private void btDangNhap(object sender, RoutedEventArgs e)
+        {
+            var wdn = new DangNhapView();
+        }
     }
 }

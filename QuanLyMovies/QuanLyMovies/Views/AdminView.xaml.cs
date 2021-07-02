@@ -1,4 +1,5 @@
 ﻿
+using QuanLyMovies.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,18 @@ namespace QuanLyMovies.Views
     {
         public AdminView()
         {
+            UtilViewModel vm;
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
+            vm = new UtilViewModel();
+            DataContext = vm;
         }
+
+        private void btTrangChu(object sender, RoutedEventArgs e)
+        {
+            var wdn = new TrangChuView();
+            wdn.Show();
+        }
+
     }
 }

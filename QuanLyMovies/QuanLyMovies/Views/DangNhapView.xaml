@@ -22,11 +22,11 @@
             <TextBlock FontSize="40" Margin="136,5" HorizontalAlignment="Center" Width="122" >Sign In</TextBlock>
             <StackPanel Grid.Row="1" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Email or phone number</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
+                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" Name="txtemail"></TextBox>
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Password</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" ></TextBox>
+                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" Name="txtpass"></TextBox>
             </StackPanel>
             <Button Grid.Row="3" FontSize="20" FontWeight="Bold" Margin="10,20,10,10" 
                     Background="Red" Foreground="White" Click="Button_Click">Sign In</Button>
@@ -34,7 +34,7 @@
                 <Button Width="152" Margin="5" Background="Black" 
                     Foreground="White" FontSize="15" BorderBrush="Black" Click="Button_Click_1">Forgot password</Button>
                 <Button Width="100" Margin="5" Background="Black" 
-                    Foreground="White" FontSize="15" BorderBrush="Black">Sign Up</Button>
+                    Foreground="White" FontSize="15" BorderBrush="Black" Click="Button_Click_2">Sign Up</Button>
             </StackPanel>
         </Grid>
     </Border>
