@@ -18,8 +18,11 @@ namespace QuanLyMovies.Models
     {
         string email;
         int phonenumber;
+        double stk;
         string pass;
         string name;
+        string tenloaithanhtoan;
+        Nullable<System.DateTime> ngayhethan;
 
         public string EMAIL
         {
@@ -32,9 +35,9 @@ namespace QuanLyMovies.Models
                     OnPropertyChanged();
                 }
             }
-
         }
-        public int PHONENUMBER {
+        public int PHONENUMBER
+        {
             get => phonenumber;
             set
             {
@@ -45,7 +48,19 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-        public string TENNGUOIDUNG {
+        public double SOTAIKHOAN {
+            get => stk;
+            set
+            {
+                if (stk != value)
+                {
+                    stk = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string TENNGUOIDUNG
+        {
             get => name;
             set
             {
@@ -56,7 +71,19 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-        public string PASS {
+        public Nullable<System.DateTime> NGAYHETHAN {
+            get => ngayhethan;
+            set
+            {
+                if (ngayhethan != value)
+                {
+                    ngayhethan = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string PASS
+        {
             get => pass;
             set
             {
@@ -67,7 +94,17 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-
+        public string TENLOAITHANHTOAN {
+            get => tenloaithanhtoan;
+            set
+            {
+                if (tenloaithanhtoan != value)
+                {
+                    tenloaithanhtoan = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

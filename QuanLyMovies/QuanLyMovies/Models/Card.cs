@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace QuanLyMovies.Models
 {
-    class Phone : ValidationRule
+    class Card : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            int num;
+            double num;
             var kq = new ValidationResult(true, null);
             var phone = value as string;
-            if (!int.TryParse(value.ToString(), out num))
+            if (!double.TryParse(value.ToString(), out num))
             {
-                kq = new ValidationResult(false, "Please input phone numbers");
+                kq = new ValidationResult(false, "Please input card number");
             }
-            else if (phone.Length != 10 && phone.Length != 11)
+            else if (phone.Length < 9 || phone.Length > 14)
             {
-                kq = new ValidationResult(false, "10 ~ 11 numbers");
+                kq = new ValidationResult(false, "9 ~ 14 numbers");
             }
             return kq;
         }

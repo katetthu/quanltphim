@@ -12,13 +12,10 @@ namespace QuanLyMovies.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PHIM
+    public partial class LOAITHANHTOAN
     {
-        public string MAPHIM { get; set; }
-        public string TENTHELOAI { get; set; }
-        public string TENPHIM { get; set; }
-        public string VIDEO { get; set; }
-        public string HINHANH { get; set; }
-        public string INFO { get; set; }
+        public string MALOAITHANHTOAN { get; set; }
+        public string TENLOAITHANHTOAN { get; set; }
+        public Nullable<double> GIATIEN { get; set; }
     }
 }

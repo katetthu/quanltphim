@@ -18,7 +18,7 @@ namespace QuanLyMovies.Models
             var kq = new ValidationResult(true, null);
             if (match == null || match == Match.Empty)
             {
-                kq = new ValidationResult(false, "Mật khẩu chưa mạnh");
+                kq = new ValidationResult(false, "Password not strong");
             }
             return kq;
         }

@@ -13,10 +13,10 @@ namespace QuanLyMovies.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyPhimEntities2 : DbContext
+    public partial class QuanLyPhimEntities3 : DbContext
     {
-        public QuanLyPhimEntities2()
-            : base("name=QuanLyPhimEntities2")
+        public QuanLyPhimEntities3()
+            : base("name=QuanLyPhimEntities3")
         {
         }
     
@@ -25,6 +25,7 @@ namespace QuanLyMovies.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<LOAITHANHTOAN> LOAITHANHTOANs { get; set; }
         public virtual DbSet<PHIM> PHIMs { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
         public virtual DbSet<THELOAI> THELOAIs { get; set; }

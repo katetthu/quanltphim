@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities2">
+  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities3">
+    <EntitySetMapping Name="LOAITHANHTOANs">
+      <EntityTypeMapping TypeName="QuanLyPhimModel.LOAITHANHTOAN">
+        <MappingFragment StoreEntitySet="LOAITHANHTOAN">
+          <ScalarProperty Name="MALOAITHANHTOAN" ColumnName="MALOAITHANHTOAN" />
+          <ScalarProperty Name="TENLOAITHANHTOAN" ColumnName="TENLOAITHANHTOAN" />
+          <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PHIMs">
       <EntityTypeMapping TypeName="QuanLyPhimModel.PHIM">
         <MappingFragment StoreEntitySet="PHIM">
           <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
-          <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
+          <ScalarProperty Name="TENTHELOAI" ColumnName="TENTHELOAI" />
           <ScalarProperty Name="TENPHIM" ColumnName="TENPHIM" />
           <ScalarProperty Name="VIDEO" ColumnName="VIDEO" />
           <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
@@ -18,8 +27,11 @@
         <MappingFragment StoreEntitySet="TAIKHOAN">
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="SOTAIKHOAN" ColumnName="SOTAIKHOAN" />
           <ScalarProperty Name="TENNGUOIDUNG" ColumnName="TENNGUOIDUNG" />
+          <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
           <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="TENLOAITHANHTOAN" ColumnName="TENLOAITHANHTOAN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

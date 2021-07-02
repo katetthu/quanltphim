@@ -16,7 +16,7 @@ namespace QuanLyMovies
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var wdn = new AdminView();
+            var wdn = new TrangChuView();
             wdn.Show();
         }
     }

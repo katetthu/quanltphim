@@ -68,8 +68,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\LOAITHANHTOAN.cs">
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pass.cs" />
     <Compile Include="Models\PHIM.cs">
       <DependentUpon>QuanLyPhim.tt</DependentUpon>

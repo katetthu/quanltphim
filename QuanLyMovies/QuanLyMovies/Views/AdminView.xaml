@@ -4,11 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
+        xmlns:m ="clr-namespace:QuanLyMovies.Models"
+        xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
+        
         mc:Ignorable="d" Height="700" Width="1000" 
         WindowStartupLocation="CenterScreen" Title="Admin Dashboard" WindowState="Maximized"
         SizeToContent="WidthAndHeight" Foreground="White" FontSize="20" Background="Black">
+    <Window.DataContext>
+        <m:TAIKHOAN></m:TAIKHOAN>
+    </Window.DataContext>
     <Grid>
-        <TabControl Margin="10" BorderBrush="Gainsboro" Grid.Row="1">
+        <Border Height="89" VerticalAlignment="Top" Background="Black" Margin="-17,0" >
+            <Grid>
+                <Image Source="/logo.png" Width="262" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                <Button Grid.Column="1" HorizontalAlignment="Right" Width="149" Margin="0,10,35,25" Foreground="White"
+                            FontSize="25" Background="{x:Null}" BorderBrush="gray" Click="btTrangChu">Home Page</Button>
+            </Grid>
+        </Border>
+        <TabControl Margin="10,89,10,10" BorderBrush="Gainsboro" >
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -35,10 +48,155 @@
                 </Style>
             </TabControl.Resources>
             <TabItem Header="Quản lý người dùng">
-                
+                <StackPanel>
+                    <ListView Margin="5" Name="lvnguoidung" Foreground="Blue" ItemsSource="{Binding DSNguoiDung}" Grid.ColumnSpan="2" Height="250">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=EMAIL}" />
+                                <GridViewColumn Header="Phone Number" DisplayMemberBinding="{Binding Path=PHONENUMBER}"/>
+                                <GridViewColumn Header="Số Tài Khoản" DisplayMemberBinding="{Binding Path=SOTAIKHOAN}" />
+                                <GridViewColumn Header="Tên Người Dùng" DisplayMemberBinding="{Binding Path=TENNGUOIDUNG}"/>
+                                <GridViewColumn Header="Ngày hết hạn" DisplayMemberBinding="{Binding Path=NGAYHETHAN}" />
+                                <GridViewColumn Header="Pass" DisplayMemberBinding="{Binding Path=PASS}"/>
+                                <GridViewColumn Header="Cấp Tài Khoản" DisplayMemberBinding="{Binding Path=TENLOAITHANHTOAN}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="339*"/>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="339*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Right" >Email:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.EMAIL,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Pass:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.PASS,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Phone Number:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.PHONENUMBER,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Card Number:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.SOTAIKHOAN,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Name:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.TENNGUOIDUNG,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Expiration Date:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.NGAYHETHAN,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">CBP:</Label>
+                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.TENLOAITHANHTOAN,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" >
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddNguoiDung}" Margin="20,0">Add</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteNguoiDung}" Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateNguoiDung}" Margin="20,0,50,0">Update</Button>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem Header="Quản lý Videos" />
-            <TabItem Header="Quản lý thể loại" />
+            <TabItem Header="Quản lý Videos">
+                <StackPanel>
+                    <ListView Margin="5" Name="lvphim" Foreground="Blue" ItemsSource="{Binding DSPhim}" Grid.ColumnSpan="2" Height="250">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã Phim" DisplayMemberBinding="{Binding Path=MAPHIM}" />
+                                <GridViewColumn Header="Tên Thể Loại" DisplayMemberBinding="{Binding Path=TENTHELOAI}"/>
+                                <GridViewColumn Header="Tên Phim" DisplayMemberBinding="{Binding Path=TENPHIM}" />
+                                <GridViewColumn Header="Video" DisplayMemberBinding="{Binding Path=VIDEO}"/>
+                                <GridViewColumn Header="Hình Ảnh" DisplayMemberBinding="{Binding Path=HINHANH}" />
+                                <GridViewColumn Header="Thông tin" DisplayMemberBinding="{Binding Path=INFO}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="339*"/>
+                            <ColumnDefinition Width="150*"/>
+                            <ColumnDefinition Width="339*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Right" >Mã phim:</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.MAPHIM,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Tên Thể Loại:</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.TENTHELOAI,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Tên Phim</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.TENPHIM,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">Video:</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.VIDEO,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="4" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Hình Ảnh:</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.HINHANH,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Thông tin:</Label>
+                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.INFO,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" >
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddVideo}" Margin="20,0">Add</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteVideo}" Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateVideo}" Margin="20,0,50,0">Update</Button>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Quản lý thể loại" >
+                <StackPanel Orientation="Horizontal">
+
+                    <ListView Margin="5" Name="lvtheloai" Foreground="Blue" ItemsSource="{Binding DSTheLoai}" Width="450" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã Thể Loại" DisplayMemberBinding="{Binding Path=MATHELOAI}" />
+                                <GridViewColumn Header="Tên Thể Loại" DisplayMemberBinding="{Binding Path=TENTHELOAI}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel HorizontalAlignment="Center">
+                    
+                        <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Left" >Mã thể loại:</Label>
+                        <TextBox Text="{Binding ElementName=lvtheloai, Path=SelectedValue.MATHELOAI,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+
+                        <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="0,20,0,0">Tên thể loại</Label>
+                        <TextBox Text="{Binding ElementName=lvtheloai, Path=SelectedValue.TENTHELOAI,Mode=OneWay}" 
+                                 Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
+                       
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddTheLoai}" Margin="20,0">Add</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteTheLoai}" Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateTheLoai}" Margin="20,0,50,0">Update</Button>
+                    </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
             <TabItem Header="Báo cáo thống kê" />
         </TabControl>
     </Grid>
