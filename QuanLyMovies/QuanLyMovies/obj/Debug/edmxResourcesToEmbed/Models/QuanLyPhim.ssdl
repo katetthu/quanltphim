@@ -29,7 +29,7 @@
     <Property Name="PHONENUMBER" Type="int" Nullable="false" />
     <Property Name="SOTAIKHOAN" Type="float" Nullable="false" />
     <Property Name="TENNGUOIDUNG" Type="nvarchar" MaxLength="100" />
-    <Property Name="NGAYHETHAN" Type="date" />
+    <Property Name="NGAYHETHAN" Type="datetime" />
     <Property Name="PASS" Type="varchar" MaxLength="30" />
     <Property Name="TENLOAITHANHTOAN" Type="varchar" MaxLength="10" />
   </EntityType>
