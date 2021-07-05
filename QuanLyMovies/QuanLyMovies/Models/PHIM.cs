@@ -11,14 +11,106 @@ namespace QuanLyMovies.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
     public partial class PHIM
     {
-        public string MAPHIM { get; set; }
-        public string TENTHELOAI { get; set; }
-        public string TENPHIM { get; set; }
-        public string VIDEO { get; set; }
-        public string HINHANH { get; set; }
-        public string INFO { get; set; }
+        string maphim;
+        string tentheloai;
+        string tenphim;
+        string video;
+        string hinhanh;
+        string info;
+
+        public string MAPHIM
+        {
+            get => maphim;
+            set
+            {
+                if (maphim != value)
+                {
+                    maphim = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string TENTHELOAI
+        {
+            get => tentheloai;
+            set
+            {
+                if (tentheloai != value)
+                {
+                    tentheloai = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string TENPHIM
+        {
+            get => tenphim;
+            set
+            {
+                if (tenphim != value)
+                {
+                    tenphim = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string VIDEO
+        {
+            get => video;
+            set
+            {
+                if (video != value)
+                {
+                    video = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string HINHANH
+        {
+            get => hinhanh;
+            set
+            {
+                if (hinhanh != value)
+                {
+                    hinhanh = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string INFO
+        {
+            get => info;
+            set
+            {
+                if (info != value)
+                {
+                    info = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected virtual bool OnPropertyChanged<T>(ref T backingField, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (EqualityComparer<T>.Default.Equals(backingField, value))
+                return false;
+
+            backingField = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
     }
 }

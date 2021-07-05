@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace QuanLyMovies.Command
 {
-    class CmdDeleteNguoiDung : ICommand
+    public class CmdDeleteNguoiDung : ICommand
     {
         UtilViewModel vm;
         public event EventHandler CanExecuteChanged

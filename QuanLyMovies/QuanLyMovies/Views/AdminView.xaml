@@ -117,7 +117,8 @@
             </TabItem>
             <TabItem Header="Quản lý Videos">
                 <StackPanel>
-                    <ListView Margin="5" Name="lvphim" Foreground="Blue" ItemsSource="{Binding DSPhim}" Grid.ColumnSpan="2" Height="250">
+                    <ListView Margin="5" Name="lvphim" Foreground="Blue" ItemsSource="{Binding DSPhim}" 
+                              Grid.ColumnSpan="2" Height="250"  SelectedValue="{Binding ItemPhim,Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Mã Phim" DisplayMemberBinding="{Binding Path=MAPHIM}" />
@@ -144,31 +145,33 @@
                         </Grid.RowDefinitions>
 
                         <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Right" >Mã phim:</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.MAPHIM,Mode=OneWay}" 
+                        <TextBox Name="txtMaPhim"  Text="{Binding ItemPhim.MAPHIM}" 
                                  Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Tên Thể Loại:</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.TENTHELOAI,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemPhim.TENTHELOAI}" 
                                  Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Tên Phim</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.TENPHIM,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemPhim.TENPHIM}" 
                                  Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">Video:</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.VIDEO,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemPhim.VIDEO}"
                                  Margin="10" Grid.Column="4" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Hình Ảnh:</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.HINHANH,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemPhim.HINHANH}"
                                  Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Thông tin:</Label>
-                        <TextBox Text="{Binding ElementName=lvphim, Path=SelectedValue.INFO,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemPhim.INFO}"
                                  Margin="10" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
                     </Grid>
                     <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" >
                         <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddVideo}" Margin="20,0">Add</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteVideo}" Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteVideo}"
+                                  CommandParameter ="{Binding ElementName=txtMaPhim,Path=Text}" 
+                                 Margin="20,0">Delete</Button>
                         <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateVideo}" Margin="20,0,50,0">Update</Button>
                     </StackPanel>
                 </StackPanel>
@@ -176,7 +179,8 @@
             <TabItem Header="Quản lý thể loại" >
                 <StackPanel Orientation="Horizontal">
 
-                    <ListView Margin="5" Name="lvtheloai" Foreground="Blue" ItemsSource="{Binding DSTheLoai}" Width="450" >
+                    <ListView Margin="5" Name="lvtheloai" Foreground="Blue" ItemsSource="{Binding DSTheLoai}" Width="450" 
+                               SelectedValue="{Binding ItemTheLoai,Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Mã Thể Loại" DisplayMemberBinding="{Binding Path=MATHELOAI}" />
@@ -187,16 +191,18 @@
                     <StackPanel HorizontalAlignment="Center">
                     
                         <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Left" >Mã thể loại:</Label>
-                        <TextBox Text="{Binding ElementName=lvtheloai, Path=SelectedValue.MATHELOAI,Mode=OneWay}" 
+                        <TextBox Name="txtMaTheLoai" Text="{Binding ItemTheLoai.MATHELOAI}"
                                  Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="0,20,0,0">Tên thể loại</Label>
-                        <TextBox Text="{Binding ElementName=lvtheloai, Path=SelectedValue.TENTHELOAI,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemTheLoai.TENTHELOAI}"
                                  Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
                        
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                         <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddTheLoai}" Margin="20,0">Add</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteTheLoai}" Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteTheLoai}"
+                                CommandParameter ="{Binding ElementName=txtMaTheLoai,Path=Text}" 
+                                 Margin="20,0">Delete</Button>
                         <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateTheLoai}" Margin="20,0,50,0">Update</Button>
                     </StackPanel>
                     </StackPanel>

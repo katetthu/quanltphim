@@ -68,8 +68,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\CmdAddNguoiDung.cs" />
+    <Compile Include="Command\CmdAddTheLoai.cs" />
+    <Compile Include="Command\CmdAddVideo.cs" />
     <Compile Include="Command\CmdDeleteNguoiDung.cs" />
+    <Compile Include="Command\CmdDeleteTheLoai.cs" />
+    <Compile Include="Command\CmdDeleteVideo.cs" />
     <Compile Include="Command\CmdUpdateNguoiDung.cs" />
+    <Compile Include="Command\CmdUpdateTheLoai.cs" />
+    <Compile Include="Command\CmdUpdateVideo.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Date.cs" />
