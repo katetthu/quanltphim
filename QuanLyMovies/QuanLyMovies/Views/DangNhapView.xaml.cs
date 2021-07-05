@@ -27,7 +27,7 @@ namespace QuanLyMovies.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ((txtemail.Text == "admin@gmail.com" || Int32.Parse(txtemail.Text) == 12345679) && txtpass.Text == "admin")
+            if ((txtemail.Text == "admin@gmail.com" || Int32.Parse(txtemail.Text) == 12345679) && txtpass.Password == "admin")
             {
                 var wdn1 = new AdminView();
                 wdn1.Show();

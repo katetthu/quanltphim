@@ -111,7 +111,7 @@ namespace QuanLyMovies.ViewModels
             CmdAddTheLoai = new RelayCommand<string>(AddTheLoai);
             CmdDeleteTheLoai = new RelayCommand<string>(DeleteTheLoai);
 
-            using (var qlp = new QuanLyPhimEntities4())
+            using (var qlp = new QuanLyPhimEntities5())
             {
                 var list = new List<PHIM>(qlp.PHIMs.ToList());
                 DSMovie = Enumerable.Range(0, list.Count()).Select(i => list[i]).ToList();
@@ -123,7 +123,7 @@ namespace QuanLyMovies.ViewModels
         }
         public void Refresh()
         {
-            using (var qlp = new QuanLyPhimEntities4())
+            using (var qlp = new QuanLyPhimEntities5())
             {
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
                 DSPhim = new ObservableCollection<PHIM>(qlp.PHIMs.ToList());
@@ -133,7 +133,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var ndCur = DSNguoiDung.Single(ng => ng.EMAIL == ItemNguoiDung.EMAIL);
                 convertNd(ndCur, ItemNguoiDung);
@@ -145,7 +145,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 qlnd.TAIKHOANs.Add(ItemNguoiDung);
                 qlnd.SaveChanges();
@@ -155,7 +155,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteNguoiDung(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var nd = new TAIKHOAN();
 
@@ -182,7 +182,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var ndCur = DSPhim.Single(ng => ng.MAPHIM == ItemPhim.MAPHIM);
                 convertVd(ndCur, ItemPhim);
@@ -194,7 +194,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 qlnd.PHIMs.Add(ItemPhim);
                 qlnd.SaveChanges();
@@ -204,7 +204,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteVideo(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var nd = new PHIM();
 
@@ -230,7 +230,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var ndCur = DSTheLoai.Single(ng => ng.MATHELOAI == ItemTheLoai.MATHELOAI);
                 convertTl(ndCur, ItemTheLoai);
@@ -242,7 +242,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 qlnd.THELOAIs.Add(ItemTheLoai);
                 qlnd.SaveChanges();
@@ -252,7 +252,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteTheLoai(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities4())
+            using (var qlnd = new QuanLyPhimEntities5())
             {
                 var nd = new THELOAI();
 

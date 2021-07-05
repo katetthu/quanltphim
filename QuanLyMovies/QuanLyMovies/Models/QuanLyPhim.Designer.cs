@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\VU MINH CHIEN\Desktop\ltud-Phim\quanltphim\QuanLyMovies\QuanLyMovies\Models\QuanLyPhim.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\Models\QuanLyPhim.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

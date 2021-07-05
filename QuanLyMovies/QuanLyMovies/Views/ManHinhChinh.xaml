@@ -95,6 +95,22 @@
         </ResourceDictionary>
     </Window.Resources>-->
     <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="Red">
+
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <ControlTemplate x:Key="errorTemplate">
             <DockPanel LastChildFill="True">
                 <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
@@ -232,7 +248,7 @@
                             </Button.Resources>
                         </Button>
                     </StackPanel>
-                    <Image Margin="63,41,626,-28" Source="/QuanLyMovies;component/logo.png" Stretch="Fill"/>
+                    <Image Height="100" Width="300" Source="/QuanLyMovies;component/logo.png"  Margin="50,20,0,0" HorizontalAlignment="Left"/>
                 </Grid>
 
                 <Grid Height="955" HorizontalAlignment="Center" Margin="0,200,0,0">

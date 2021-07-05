@@ -8,6 +8,23 @@
         Title="DangNhapView" Height="700" Width="1000" WindowState="Maximized"
         WindowStartupLocation="CenterScreen" Background="Black"
         SizeToContent="WidthAndHeight" Foreground="White">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Border Width="400" Height="500" BorderBrush="DarkBlue" BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>
@@ -26,10 +43,27 @@
             </StackPanel>
             <StackPanel Grid.Row="2" Orientation="Vertical">
                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Password</TextBlock>
-                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" Name="txtpass"></TextBox>
+                <PasswordBox Margin="10,7" VerticalContentAlignment="Center" FontSize="20" Height="37" Name="txtpass"></PasswordBox>
             </StackPanel>
-            <Button Grid.Row="3" FontSize="20" FontWeight="Bold" Margin="10,20,10,10" 
-                    Background="Red" Foreground="White" Click="Button_Click">Sign In</Button>
+            <Button Grid.Row="3" FontSize="20" FontWeight="Bold" Margin="10,20,10,10" Cursor="Hand"
+                    Foreground="White" Click="Button_Click">Sign In
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template" >
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="Red" >
+                                        <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
             <StackPanel Grid.Row="5" Orientation="Horizontal">
                 <Button Width="152" Margin="5" Background="Black" 
                     Foreground="White" FontSize="15" BorderBrush="Black" Click="Button_Click_1">Forgot password</Button>

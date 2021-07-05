@@ -192,6 +192,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="loupe.png" />
     <Resource Include="Views\back.png" />
     <Resource Include="InfoMovies\1.txt" />
     <Resource Include="InfoMovies\10.txt" />
@@ -258,6 +259,7 @@
     <Resource Include="checknotround.PNG" />
     <Resource Include="logobgwhite.PNG" />
     <Resource Include="cost.PNG" />
+    <Resource Include="greetings.png" />
     <Content Include="Models\QuanLyPhim.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyPhim.edmx</DependentUpon>

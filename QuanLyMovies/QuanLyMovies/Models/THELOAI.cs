@@ -60,5 +60,4 @@ namespace QuanLyMovies.Models
             return true;
         }
     }
-
 }

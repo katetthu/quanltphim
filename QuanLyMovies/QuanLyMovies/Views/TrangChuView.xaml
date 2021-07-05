@@ -11,26 +11,45 @@
         WindowStartupLocation="CenterScreen" 
         SizeToContent="WidthAndHeight" Foreground="White"  WindowState="Maximized">
     <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <DataTemplate DataType="{x:Type m:PHIM}">
-            <Grid Margin="10" Height="300" Width="220" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
-                <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Text="{Binding TENTHELOAI}"/>
+                </GroupBox.Header>
+                <Grid Margin="10" Height="300" Width="220" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                    <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
                     ,Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid},
                     Path=Height}" RadiusX="2" RadiusY="2">
-                    <Rectangle.Fill>
-                        <SolidColorBrush Color="Gray"/>
-                    </Rectangle.Fill>
-                    <Rectangle.Effect>
-                        <BlurEffect Radius="5"/>
-                    </Rectangle.Effect>
-                </Rectangle>
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="Gray"/>
+                        </Rectangle.Fill>
+                        <Rectangle.Effect>
+                            <BlurEffect Radius="5"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
 
-                
-                <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
+
+                    <!--<Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
                         Background="White">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="{Binding HINHANH}" Stretch="Fill"
@@ -39,144 +58,176 @@
                                    Path=Height}" Opacity="30"/>
                         <MediaElement Name="video" Source="{Binding VIDEO}" LoadedBehavior="Manual"/>
                     </Grid>
-                </Border>
+                </Border>-->
 
-                <Grid.LayoutTransform>
-                    <ScaleTransform ScaleX="1" ScaleY="1"/>
-                </Grid.LayoutTransform>
+                    <Grid.LayoutTransform>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    </Grid.LayoutTransform>
 
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True">
-                                <DataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX"
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX"
                                                              BeginTime="0:0:0" To="2" Duration="0:0:1">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY"
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY"
                                                              BeginTime="0:0:0" To="2" Duration="0:0:1">
-                                                <DoubleAnimation.EasingFunction>
-                                                    <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
-                                                </DoubleAnimation.EasingFunction>
-                                            </DoubleAnimation>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </DataTrigger.EnterActions>
-                                <DataTrigger.ExitActions>
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleX" 
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleX" 
                                                              Duration="0:0:0.25"/>
-                                            <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleY" 
+                                                <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleY" 
                                                              Duration="0:0:0.25"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </DataTrigger.ExitActions>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Grid.Style>
-            </Grid>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+            </GroupBox>
         </DataTemplate>
     </Window.Resources>
-    
-    <StackPanel Background="Black">
-        <Grid Height="50">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Image Width="148" Margin="5" />
-                <Button Width="100" Margin="5" Background="Black" 
+    <ScrollViewer>
+        <StackPanel Background="Black" >
+            <Grid Height="70" Margin="10,20,10,30" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="148" Margin="20,0,10,0" Source="/logo.png"/>
+                    <Button Width="100" Margin="5" Background="Black" 
                     Foreground="White" FontSize="15" BorderBrush="Black">
-                    Trang chủ
-                </Button>
-            </StackPanel>
+                        Trang chủ
+                    </Button>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                <Button Width="100" Margin="5" Background="Black" 
-                    Foreground="White" FontSize="15" BorderBrush="Black">Đăng kí</Button>
-                <Button Width="100" Margin="5" Background="Black" 
-                    Foreground="White" FontSize="15" BorderBrush="Black">Đăng nhập</Button>
-                <Image Width="50" Margin="5"/>
-            </StackPanel>
-        </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Grid Height="40" Width="400" Margin="0,0,30,0">
+                        <TextBox FontSize="25" VerticalContentAlignment="Center"/>
+                        <Button Width="25" Margin="5" Height="25" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand"
+                            HorizontalAlignment="Right">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border>
+                                                    <Border.Background>
+                                                        <ImageBrush ImageSource="/loupe.png" Stretch="Uniform"/>
+                                                    </Border.Background>
+                                                    <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Grid>
 
-        <ScrollViewer Height="620">
+
+                    <Menu Width="72" FontSize="20" Cursor="Hand">
+                        <Menu.Background>
+                            <ImageBrush ImageSource="/greetings.png" Stretch="Uniform"/>
+                        </Menu.Background>
+                        <MenuItem Height="70" Width="72">
+
+                            <MenuItem Header="Chỉnh sửa thông tin" Height="40" VerticalContentAlignment="Center" />
+                            <MenuItem Header="Lịch sử thanh toán" Height="40" VerticalContentAlignment="Center"/>
+                            <MenuItem Header="Đăng xuất" Height="40" VerticalContentAlignment="Center" />
+                        </MenuItem>
+                    </Menu>
+
+                </StackPanel>
+            </Grid>
+
+
             <StackPanel Grid.Row="1">
-            <StackPanel.Resources>
-                <Style TargetType="ItemsControl">
-                    <Setter Property="ItemsPanel">
-                        <Setter.Value>
-                            <ItemsPanelTemplate>
-                                <VirtualizingStackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition Width="20"/>
-                                    </Grid.ColumnDefinitions>
+                <StackPanel.Resources>
+                    <Style TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="20"/>
+                                        </Grid.ColumnDefinitions>
 
-                                    <ScrollViewer Name="sv" Grid.Column="1" HorizontalScrollBarVisibility="Hidden"
+                                        <ScrollViewer Name="sv" Grid.Column="1" HorizontalScrollBarVisibility="Hidden"
                                                   VerticalScrollBarVisibility="Disabled">
-                                        <ItemsPresenter/>
-                                    </ScrollViewer>
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
 
-                                    <RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}"
+                                        <RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}"
                                                   CommandTarget="{Binding ElementName=sv}" ClickMode="Hover">
-                                        <RepeatButton.Content>
-                                            <Path Width="30" Height="30" Stretch="Fill"
+                                            <RepeatButton.Content>
+                                                <Path Width="30" Height="30" Stretch="Fill"
                                                   VerticalAlignment="Center" HorizontalAlignment="Center"
                                                   Fill="Gray" Data="M 30 0 L 0 15 L 30 30 Z"/>
-                                        </RepeatButton.Content>
-                                    </RepeatButton>
-                                    <RepeatButton Command="{x:Static ScrollBar.LineRightCommand}" Grid.Column="2"
+                                            </RepeatButton.Content>
+                                        </RepeatButton>
+                                        <RepeatButton Command="{x:Static ScrollBar.LineRightCommand}" Grid.Column="2"
                                                   CommandTarget="{Binding ElementName=sv}" ClickMode="Hover">
-                                        <RepeatButton.Content>
-                                            <Path Width="30" Height="30" Stretch="Fill"
+                                            <RepeatButton.Content>
+                                                <Path Width="30" Height="30" Stretch="Fill"
                                                   VerticalAlignment="Center" HorizontalAlignment="Center"
                                                   Fill="Gray" Data="M 0 0 L 30 15 L 0 30 Z"/>
-                                        </RepeatButton.Content>
-                                    </RepeatButton>
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </StackPanel.Resources>
-            <GroupBox BorderThickness="0">
-                <GroupBox.Header>
-                    <TextBlock Name="TheLoai" Text="Top Thịnh Hành" FontSize="20"/>
-                </GroupBox.Header>
+                                            </RepeatButton.Content>
+                                        </RepeatButton>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+
                 <ItemsControl ItemsSource="{Binding DSMovie}" />
-            </GroupBox>
-            <GroupBox BorderThickness="0">
-                <GroupBox.Header>
-                    <TextBlock Text="Tình Cảm" FontSize="20"/>
-                </GroupBox.Header>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
-            </GroupBox>
-            <GroupBox BorderThickness="0">
-                <GroupBox.Header>
-                    <TextBlock Text="Hành Động" FontSize="20"/>
-                </GroupBox.Header>
-                <ItemsControl ItemsSource="{Binding DSMovie}"/>
-            </GroupBox>
+
+                <!--<GroupBox BorderThickness="0">
+                    <GroupBox.Header>
+                        <TextBlock Text="Tình Cảm" FontSize="20"/>
+                    </GroupBox.Header>
+                    <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                </GroupBox>
+                <GroupBox BorderThickness="0">
+                    <GroupBox.Header>
+                        <TextBlock Text="Hành Động" FontSize="20"/>
+                    </GroupBox.Header>
+                    <ItemsControl ItemsSource="{Binding DSMovie}"/>
+                </GroupBox>-->
+
+            </StackPanel>
 
         </StackPanel>
     </ScrollViewer>
-    </StackPanel>
-       
 </Window>

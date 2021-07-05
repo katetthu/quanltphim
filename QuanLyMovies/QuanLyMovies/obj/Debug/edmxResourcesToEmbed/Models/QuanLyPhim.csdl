@@ -40,7 +40,7 @@
     <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="QuanLyPhimEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyPhimEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
     <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
     <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />

@@ -14,6 +14,39 @@
         <m:TAIKHOAN/>
     </Window.DataContext>
     <Window.Resources>
+        <Style TargetType="Button" x:Key="Next">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="Red" CornerRadius="5">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="back">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="back.png"/>
+                            </Border.Background>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <ControlTemplate x:Key="errorTemplate">
             <DockPanel LastChildFill="True">
                 <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
@@ -58,17 +91,12 @@
                             <Label FontSize="30" Width="535">Email</Label>
                             <TextBox FontSize="30" Height="53" Width="493" FontWeight="Bold" BorderBrush="{x:Null}" IsReadOnly="True"/>
                             <Label FontSize="30" Width="535">Pass</Label>
-                            <TextBox FontSize="30" Height="53" Width="493"/>
+                            <PasswordBox FontSize="30" Height="53" Width="493"/>
 
                             <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
-                                    VerticalContentAlignment="Center" VerticalAlignment="Center" 
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Next}"
                                     HorizontalContentAlignment="Center" Margin="10,30,10,10" Click="btnNextTab_Click">
                                 Next
-                                <Button.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="5"/>
-                                    </Style>
-                                </Button.Resources>
                             </Button>
                         </StackPanel>
                     </Grid>
@@ -109,21 +137,12 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="72" Width="128" FontSize="40" Foreground="White" Margin="0,30,0,0"
                                     VerticalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}"
-                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="back.png"/>
-                                    </Button.Background>
+                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click"  Style="{StaticResource back}">
                                 </Button>
                                 <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
-                                    VerticalContentAlignment="Center" VerticalAlignment="Center" 
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource Next}"
                                     HorizontalContentAlignment="Center" Margin="0,30,0,0" Click="btnNextTab_Click">
-                                    Next
-                                    <Button.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
+                                    Next</Button>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
@@ -185,20 +204,12 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Height="72" Width="128" FontSize="40" Foreground="White" Margin="0,30,0,0"
                                     VerticalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}"
-                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="back.png"/>
-                                    </Button.Background>
+                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click"  Style="{StaticResource back}">
                                 </Button>
                                 <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
-                                    VerticalContentAlignment="Center" VerticalAlignment="Center" 
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource Next}"
                                     HorizontalContentAlignment="Center" Margin="0,30,0,0" Click="btnNextTab_Click">
                                     Next
-                                    <Button.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
                                 </Button>
                             </StackPanel>
                         </StackPanel>
@@ -260,33 +271,25 @@
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Width="635">
                                 <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Confirm password</TextBlock>
-                                <TextBox Margin="10,7" VerticalContentAlignment="Center" FontSize="25" Height="55" ></TextBox>
+                                <PasswordBox Margin="10,7" VerticalContentAlignment="Center" FontSize="25" Height="55" ></PasswordBox>
                             </StackPanel>
-                            
+
                             <ComboBox Width="262" Height="56" FontSize="50" HorizontalAlignment="Center"
                                       Margin="0,10,0,0"/>
 
                             <StackPanel Orientation="Horizontal">
                                 <Button Height="72" Width="128" FontSize="40" Foreground="White" Margin="0,30,0,0"
                                     VerticalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}"
-                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="back.png"/>
-                                    </Button.Background>
+                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click"  Style="{StaticResource back}">
                                 </Button>
                                 <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
-                                    VerticalContentAlignment="Center" VerticalAlignment="Center" 
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource Next}"
                                     HorizontalContentAlignment="Center" Margin="0,30,0,0" Click="btDangNhap">
                                     Start Membership
-                                    <Button.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
                                 </Button>
                             </StackPanel>
-                            
-                            
+
+
                         </StackPanel>
                     </Grid>
                 </TabItem>
@@ -300,7 +303,25 @@
                     </Grid.ColumnDefinitions>
                     <Image Source="/logobgwhite.png" Height="100" Width="262" HorizontalAlignment="Left" Margin="42,0,0,-2" />
                     <Button Grid.Column="1" HorizontalAlignment="Right" Width="200" Margin="0,10,54,10" 
-                            FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="btDangNhap">Sign In</Button>
+                            FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="btDangNhap">Sign In
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border>
+                                                <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </Grid>
             </Border>
 
