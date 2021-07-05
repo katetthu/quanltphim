@@ -49,7 +49,8 @@
             </TabControl.Resources>
             <TabItem Header="Quản lý người dùng">
                 <StackPanel>
-                    <ListView Margin="5" Name="lvnguoidung" Foreground="Blue" ItemsSource="{Binding DSNguoiDung}" Grid.ColumnSpan="2" Height="250">
+                    <ListView Margin="5" Name="lvnguoidung" Foreground="Blue" ItemsSource="{Binding DSNguoiDung}"
+                              Grid.ColumnSpan="2" Height="250" SelectedValue="{Binding ItemNguoiDung,Mode=OneWayToSource}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Path=EMAIL}" />
@@ -77,36 +78,40 @@
                         </Grid.RowDefinitions>
 
                         <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Right" >Email:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.EMAIL,Mode=OneWay}" 
+                        <TextBox Name="txtEmmail" Text="{Binding ItemNguoiDung.EMAIL}" 
                                  Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Pass:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.PASS,Mode=OneWay}" 
+                        <TextBox Text="{Binding ItemNguoiDung.PASS}" 
                                  Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Phone Number:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.PHONENUMBER,Mode=OneWay}" 
+                        <TextBox Text="{Binding ItemNguoiDung.PHONENUMBER}" 
                                  Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Card Number:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.SOTAIKHOAN,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemNguoiDung.SOTAIKHOAN}" 
                                  Margin="10" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Name:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.TENNGUOIDUNG,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemNguoiDung.TENNGUOIDUNG}" 
                                  Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Expiration Date:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.NGAYHETHAN,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemNguoiDung.NGAYHETHAN}" 
                                  Margin="10" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">CBP:</Label>
-                        <TextBox Text="{Binding ElementName=lvnguoidung, Path=SelectedValue.TENLOAITHANHTOAN,Mode=OneWay}" 
+                        <TextBox  Text="{Binding ItemNguoiDung.TENLOAITHANHTOAN}" 
                                  Margin="10" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
                     </Grid>
                     <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" >
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddNguoiDung}" Margin="20,0">Add</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteNguoiDung}" Margin="20,0">Delete</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateNguoiDung}" Margin="20,0,50,0">Update</Button>
+                        <Button  FontSize="20" Height="50" Width="120" Command="{Binding CmdAddNguoiDung}" Margin="20,0">Add</Button>
+                        <Button  FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteNguoiDung}" 
+                                 CommandParameter ="{Binding ElementName=txtEmmail,Path=Text}" 
+                                 Margin="20,0">Delete</Button>
+                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateNguoiDung}"
+                                      CommandParameter ="{Binding ElementName=txtEmmail,Path=Text}" 
+                                Margin="20,0,50,0">Update</Button>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

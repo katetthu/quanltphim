@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\CmdAddNguoiDung.cs" />
+    <Compile Include="Command\CmdDeleteNguoiDung.cs" />
+    <Compile Include="Command\CmdUpdateNguoiDung.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Date.cs" />

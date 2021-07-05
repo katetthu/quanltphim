@@ -13,10 +13,10 @@ namespace QuanLyMovies.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyPhimEntities3 : DbContext
+    public partial class QuanLyPhimEntities4 : DbContext
     {
-        public QuanLyPhimEntities3()
-            : base("name=QuanLyPhimEntities3")
+        public QuanLyPhimEntities4()
+            : base("name=QuanLyPhimEntities4")
         {
         }
     

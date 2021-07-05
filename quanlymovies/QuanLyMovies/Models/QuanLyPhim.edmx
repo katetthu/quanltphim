@@ -5,12 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="QuanLyPhimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOAITHANHTOAN">
+          <Key>
+            <PropertyRef Name="MALOAITHANHTOAN" />
+          </Key>
+          <Property Name="MALOAITHANHTOAN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENLOAITHANHTOAN" Type="varchar" MaxLength="50" />
+          <Property Name="GIATIEN" Type="float" />
+        </EntityType>
         <EntityType Name="PHIM">
           <Key>
             <PropertyRef Name="MAPHIM" />
           </Key>
           <Property Name="MAPHIM" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MATHELOAI" Type="varchar" MaxLength="10" />
+          <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" />
           <Property Name="TENPHIM" Type="nvarchar" MaxLength="50" />
           <Property Name="VIDEO" Type="varchar" MaxLength="50" />
           <Property Name="HINHANH" Type="varchar" MaxLength="200" />
@@ -20,11 +28,15 @@
           <Key>
             <PropertyRef Name="EMAIL" />
             <PropertyRef Name="PHONENUMBER" />
+            <PropertyRef Name="SOTAIKHOAN" />
           </Key>
           <Property Name="EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="PHONENUMBER" Type="int" Nullable="false" />
+          <Property Name="SOTAIKHOAN" Type="float" Nullable="false" />
           <Property Name="TENNGUOIDUNG" Type="nvarchar" MaxLength="100" />
+          <Property Name="NGAYHETHAN" Type="datetime" />
           <Property Name="PASS" Type="varchar" MaxLength="30" />
+          <Property Name="TENLOAITHANHTOAN" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -34,6 +46,7 @@
           <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="QuanLyPhimModelStoreContainer">
+          <EntitySet Name="LOAITHANHTOAN" EntityType="Self.LOAITHANHTOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
@@ -43,12 +56,20 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyPhimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOAITHANHTOAN">
+          <Key>
+            <PropertyRef Name="MALOAITHANHTOAN" />
+          </Key>
+          <Property Name="MALOAITHANHTOAN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENLOAITHANHTOAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GIATIEN" Type="Double" />
+        </EntityType>
         <EntityType Name="PHIM">
           <Key>
             <PropertyRef Name="MAPHIM" />
           </Key>
           <Property Name="MAPHIM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TENPHIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VIDEO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="HINHANH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -58,11 +79,15 @@
           <Key>
             <PropertyRef Name="EMAIL" />
             <PropertyRef Name="PHONENUMBER" />
+            <PropertyRef Name="SOTAIKHOAN" />
           </Key>
           <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PHONENUMBER" Type="Int32" Nullable="false" />
+          <Property Name="SOTAIKHOAN" Type="Double" Nullable="false" />
           <Property Name="TENNGUOIDUNG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYHETHAN" Type="DateTime" Precision="3" />
           <Property Name="PASS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TENLOAITHANHTOAN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -71,7 +96,8 @@
           <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="QuanLyPhimEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyPhimEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
           <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
           <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
           <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />
@@ -81,12 +107,21 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities2">
+        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities4">
+          <EntitySetMapping Name="LOAITHANHTOANs">
+            <EntityTypeMapping TypeName="QuanLyPhimModel.LOAITHANHTOAN">
+              <MappingFragment StoreEntitySet="LOAITHANHTOAN">
+                <ScalarProperty Name="MALOAITHANHTOAN" ColumnName="MALOAITHANHTOAN" />
+                <ScalarProperty Name="TENLOAITHANHTOAN" ColumnName="TENLOAITHANHTOAN" />
+                <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PHIMs">
             <EntityTypeMapping TypeName="QuanLyPhimModel.PHIM">
               <MappingFragment StoreEntitySet="PHIM">
                 <ScalarProperty Name="MAPHIM" ColumnName="MAPHIM" />
-                <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
+                <ScalarProperty Name="TENTHELOAI" ColumnName="TENTHELOAI" />
                 <ScalarProperty Name="TENPHIM" ColumnName="TENPHIM" />
                 <ScalarProperty Name="VIDEO" ColumnName="VIDEO" />
                 <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
@@ -99,8 +134,11 @@
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+                <ScalarProperty Name="SOTAIKHOAN" ColumnName="SOTAIKHOAN" />
                 <ScalarProperty Name="TENNGUOIDUNG" ColumnName="TENNGUOIDUNG" />
+                <ScalarProperty Name="NGAYHETHAN" ColumnName="NGAYHETHAN" />
                 <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="TENLOAITHANHTOAN" ColumnName="TENLOAITHANHTOAN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

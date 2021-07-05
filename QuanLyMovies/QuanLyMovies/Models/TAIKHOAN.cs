@@ -14,7 +14,7 @@ namespace QuanLyMovies.Models
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
-    public partial class TAIKHOAN : INotifyPropertyChanged
+    public partial class TAIKHOAN
     {
         string email;
         int phonenumber;
@@ -48,7 +48,8 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-        public double SOTAIKHOAN {
+        public double SOTAIKHOAN
+        {
             get => stk;
             set
             {
@@ -71,7 +72,8 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-        public Nullable<System.DateTime> NGAYHETHAN {
+        public Nullable<System.DateTime> NGAYHETHAN
+        {
             get => ngayhethan;
             set
             {
@@ -94,7 +96,8 @@ namespace QuanLyMovies.Models
                 }
             }
         }
-        public string TENLOAITHANHTOAN {
+        public string TENLOAITHANHTOAN
+        {
             get => tenloaithanhtoan;
             set
             {
@@ -122,5 +125,6 @@ namespace QuanLyMovies.Models
             OnPropertyChanged(propertyName);
             return true;
         }
+
     }
 }
