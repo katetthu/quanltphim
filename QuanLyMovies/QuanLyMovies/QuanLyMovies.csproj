@@ -113,6 +113,9 @@
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChinhSuaThongTin.xaml.cs">
+      <DependentUpon>ChinhSuaThongTin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DangKyView.xaml.cs">
       <DependentUpon>DangKyView.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChinhSuaThongTin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

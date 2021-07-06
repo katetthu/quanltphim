@@ -118,3 +118,5 @@ C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\D
 C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.CopyComplete
 C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.exe
 C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.pdb
+C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ChinhSuaThongTin.g.cs
+C:\Users\GIATHU\Desktop\QUANLYPHIMNEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ChinhSuaThongTin.baml

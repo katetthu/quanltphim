@@ -13,7 +13,7 @@
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
+            <Setter Property="Template" >
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border>
@@ -22,6 +22,39 @@
                                               Content="{TemplateBinding Content}" 
                                               VerticalAlignment="Center"/>
                         </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border>
+                            <Grid>
+                                <Grid>
+                                    <Border x:Name="border" 
+                                            Background="Black"/>
+                                </Grid>
+                                <ContentPresenter ContentSource="Header"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="black" />
+                            </Trigger>
+                            <Trigger Property="IsSelected"
+                                     Value="True">
+                                <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -104,65 +137,61 @@
             </GroupBox>
         </DataTemplate>
     </Window.Resources>
-    <ScrollViewer>
-        <StackPanel Background="Black" >
-            <Grid Height="70" Margin="10,20,10,30" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal">
-                    <Image Width="148" Margin="20,0,10,0" Source="/logo.png"/>
-                    <Button Width="100" Margin="5" Background="Black" 
-                    Foreground="White" FontSize="15" BorderBrush="Black">
-                        Trang chủ
-                    </Button>
-                </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                    <Grid Height="40" Width="400" Margin="0,0,30,0">
-                        <TextBox FontSize="25" VerticalContentAlignment="Center"/>
-                        <Button Width="25" Margin="5" Height="25" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand"
+    <StackPanel Background="Black" >
+        <Grid Height="70" Margin="10,20,10,30" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,-21">
+                <Image Width="175" Margin="30,0,10,0" Source="/logo.png"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                <Grid Height="40" Width="400" Margin="0,0,30,0">
+                    <TextBox FontSize="25" VerticalContentAlignment="Center"/>
+                    <Button Width="25" Margin="5" Height="25" VerticalAlignment="Center" BorderBrush="{x:Null}" Cursor="Hand"
                             HorizontalAlignment="Right">
-                            <Button.Style>
-                                <Style TargetType="{x:Type Button}">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="{x:Type Button}">
-                                                <Border>
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="/loupe.png" Stretch="Uniform"/>
-                                                    </Border.Background>
-                                                    <ContentPresenter Margin="{TemplateBinding Padding}"  
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="/loupe.png" Stretch="Uniform"/>
+                                                </Border.Background>
+                                                <ContentPresenter Margin="{TemplateBinding Padding}"  
                                               HorizontalAlignment="Center" 
                                               Content="{TemplateBinding Content}" 
                                               VerticalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
-                        </Button>
-                    </Grid>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
 
 
-                    <Menu Width="72" FontSize="20" Cursor="Hand">
-                        <Menu.Background>
-                            <ImageBrush ImageSource="/greetings.png" Stretch="Uniform"/>
-                        </Menu.Background>
-                        <MenuItem Height="70" Width="72">
+                <Menu Width="72" FontSize="20" Cursor="Hand">
+                    <Menu.Background>
+                        <ImageBrush ImageSource="/greetings.png" Stretch="Uniform"/>
+                    </Menu.Background>
+                    <MenuItem Height="70" Width="72">
+                        <!--<TextBlock Text="{Binding }"/>-->
+                        <Button Height="40" VerticalContentAlignment="Center" >Chỉnh sửa thông tin</Button>
+                        <Button Height="40" VerticalContentAlignment="Center">Lịch sử thanh toán</Button>
+                        <Button Height="40" VerticalContentAlignment="Center" Click="btDangXuat">Đăng xuất</Button>
+                    </MenuItem>
+                </Menu>
 
-                            <MenuItem Header="Chỉnh sửa thông tin" Height="40" VerticalContentAlignment="Center" />
-                            <MenuItem Header="Lịch sử thanh toán" Height="40" VerticalContentAlignment="Center"/>
-                            <MenuItem Header="Đăng xuất" Height="40" VerticalContentAlignment="Center" />
-                        </MenuItem>
-                    </Menu>
+            </StackPanel>
+        </Grid>
 
-                </StackPanel>
-            </Grid>
-
-
+        <ScrollViewer >
             <StackPanel Grid.Row="1">
                 <StackPanel.Resources>
                     <Style TargetType="ItemsControl">
@@ -211,7 +240,23 @@
                     </Style>
                 </StackPanel.Resources>
 
-                <ItemsControl ItemsSource="{Binding DSMovie}" />
+                <TabControl Height="441" Background="Black" Name="tabcontrolll" BorderBrush="{x:Null}">
+                   
+                    <TabItem Header="Trang Chủ" Background="Black" Foreground="White" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
+                        <ItemsControl ItemsSource="{Binding DSMovie}" Margin="0,40,0,0" />
+                    </TabItem>
+                    <TabItem  Header="Phim Thịnh Hành" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+
+                    </TabItem>
+                    <TabItem Header="Danh sách của tôi" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+
+                    </TabItem>
+                    <TabItem Header="Thể loại" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
+
+                    </TabItem>
+                </TabControl>
+
+
 
                 <!--<GroupBox BorderThickness="0">
                     <GroupBox.Header>
@@ -227,7 +272,7 @@
                 </GroupBox>-->
 
             </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
 
-        </StackPanel>
-    </ScrollViewer>
 </Window>

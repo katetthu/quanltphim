@@ -21,7 +21,7 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class TrangChuView : Window
     {
-         UtilViewModel vm;
+        UtilViewModel vm;
         public TrangChuView()
         {
             InitializeComponent();
@@ -36,12 +36,12 @@ namespace QuanLyMovies.Views
 
             //// Automatically resize height and width relative to content
             //this.SizeToContent = SizeToContent.WidthAndHeight;.
-                // lbds.DataContext = ocMH;
-                vm = new UtilViewModel();
-                DataContext = vm;
+            // lbds.DataContext = ocMH;
+            vm = new UtilViewModel();
+            DataContext = vm;
 
-                
-            }
+
+        }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -57,5 +57,11 @@ namespace QuanLyMovies.Views
             me?.Stop();
         }
 
+        private void btDangXuat(object sender, RoutedEventArgs e)
+        {
+            var wdn = new ManHinhChinh();
+            wdn.Show();
+
+        }
     }
 }
