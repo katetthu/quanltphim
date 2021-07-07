@@ -23,5 +23,12 @@ namespace QuanLyMovies.Views
         {
             InitializeComponent();
         }
+
+        private void btnBackTab_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            var wdn = new TrangChuView();
+            wdn.Show();
+        }
     }
 }

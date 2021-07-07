@@ -22,6 +22,7 @@ namespace QuanLyMovies.Views
         public ManHinhChinh()
         {
             InitializeComponent();
+     
 
         }
 
@@ -33,7 +34,8 @@ namespace QuanLyMovies.Views
 
         private void btDangKy(object sender, RoutedEventArgs e)
         {
-            var wdn = new DangKyView();
+            var txt = txtEmail.Text;
+            var wdn = new DangKyView(txt);
             wdn.Show();
         }
     }

@@ -21,8 +21,14 @@ namespace QuanLyMovies.ViewModels
         public static readonly DependencyProperty ItemNguoiDungPeoperty;
         public static readonly DependencyProperty ItemPhimPeoperty;
         public static readonly DependencyProperty ItemTheLoaiPeoperty;
-
-
+        public static readonly DependencyProperty DSVienTuongProperty;
+        public static readonly DependencyProperty DSTinhCamProperty;
+        public static readonly DependencyProperty DSHanhDongProperty;
+        public static readonly DependencyProperty DSPhieuLuuProperty;
+        public static readonly DependencyProperty DSAmNhacProperty;
+        public static readonly DependencyProperty DSHaiHuocProperty;
+        public static readonly DependencyProperty DSHoatHinhProperty;
+        public static readonly DependencyProperty DSKinhDiProperty;
 
         public RelayCommand<string> CmdUpdateNguoiDung { get; }
         public RelayCommand<string> CmdAddNguoiDung { get; }
@@ -36,6 +42,14 @@ namespace QuanLyMovies.ViewModels
 
         static UtilViewModel()
         {
+            DSAmNhacProperty = DependencyProperty.Register("DSPhimAmNhac", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSHaiHuocProperty = DependencyProperty.Register("DSPhimHaiHuoc", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSHoatHinhProperty = DependencyProperty.Register("DSPhimHoatHinh", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSKinhDiProperty = DependencyProperty.Register("DSPhimKinhDi", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSPhieuLuuProperty = DependencyProperty.Register("DSPhimPhieuLuu", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSHanhDongProperty = DependencyProperty.Register("DSPhimHanhDong", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSTinhCamProperty = DependencyProperty.Register("DSPhimTinhCam", typeof(IList<PHIM>), typeof(UtilViewModel));
+            DSVienTuongProperty = DependencyProperty.Register("DSPhimVienTuong", typeof(IList<PHIM>), typeof(UtilViewModel));
             DSMovieProperty = DependencyProperty.Register("DSMovie", typeof(IList<PHIM>), typeof(UtilViewModel));
             NguoiDungPeoperty = DependencyProperty.Register("NguoiDung", typeof(ObservableCollection<TAIKHOAN>), typeof(UtilViewModel));
             TheLoaiPeoperty = DependencyProperty.Register("TheLoai", typeof(ObservableCollection<THELOAI>), typeof(UtilViewModel));
@@ -49,6 +63,46 @@ namespace QuanLyMovies.ViewModels
         {
             get => (IList<PHIM>)GetValue(DSMovieProperty);
             set => SetValue(DSMovieProperty, value);
+        }
+        public IList<PHIM> DSPhimVienTuong
+        {
+            get => (IList<PHIM>)GetValue(DSVienTuongProperty);
+            set => SetValue(DSVienTuongProperty, value);
+        }
+        public IList<PHIM> DSPhimTinhCam
+        {
+            get => (IList<PHIM>)GetValue(DSTinhCamProperty);
+            set => SetValue(DSTinhCamProperty, value);
+        }
+        public IList<PHIM> DSPhimPhieuLuu
+        {
+            get => (IList<PHIM>)GetValue(DSPhieuLuuProperty);
+            set => SetValue(DSPhieuLuuProperty, value);
+        }
+        public IList<PHIM> DSPhimHanhDong
+        {
+            get => (IList<PHIM>)GetValue(DSHanhDongProperty);
+            set => SetValue(DSHanhDongProperty, value);
+        }
+        public IList<PHIM> DSPhimHaiHuoc
+        {
+            get => (IList<PHIM>)GetValue(DSHaiHuocProperty);
+            set => SetValue(DSHaiHuocProperty, value);
+        }
+        public IList<PHIM> DSPhimKinhDi
+        {
+            get => (IList<PHIM>)GetValue(DSKinhDiProperty);
+            set => SetValue(DSKinhDiProperty, value);
+        }
+        public IList<PHIM> DSPhimAmNhac
+        {
+            get => (IList<PHIM>)GetValue(DSAmNhacProperty);
+            set => SetValue(DSAmNhacProperty, value);
+        }
+        public IList<PHIM> DSPhimHoatHinh
+        {
+            get => (IList<PHIM>)GetValue(DSHoatHinhProperty);
+            set => SetValue(DSHoatHinhProperty, value);
         }
         public ObservableCollection<TAIKHOAN> DSNguoiDung
         {
@@ -115,11 +169,40 @@ namespace QuanLyMovies.ViewModels
             {
                 var list = new List<PHIM>(qlp.PHIMs.ToList());
                 DSMovie = Enumerable.Range(0, list.Count()).Select(i => list[i]).ToList();
+             
+                var array= xuatPhim(list, "Viễn tưởng");
+                DSPhimVienTuong = Enumerable.Range(0, array.Count()).Select(i => array[i]).ToList();
+                var array1 = xuatPhim(list, "Tình cảm");
+                DSPhimTinhCam = Enumerable.Range(0, array1.Count()).Select(i => array1[i]).ToList();
+                var array2 = xuatPhim(list, "Hành động");
+                DSPhimHanhDong = Enumerable.Range(0, array2.Count()).Select(i => array2[i]).ToList();
+                var array3 = xuatPhim(list, "Phiêu Lưu");
+                DSPhimPhieuLuu = Enumerable.Range(0, array3.Count()).Select(i => array3[i]).ToList();
+                var array4 = xuatPhim(list, "Âm nhạc");
+                DSPhimAmNhac = Enumerable.Range(0, array4.Count()).Select(i => array4[i]).ToList();
+                var array5 = xuatPhim(list, "Hài hước");
+                DSPhimHaiHuoc = Enumerable.Range(0, array5.Count()).Select(i => array5[i]).ToList();
+                var array6 = xuatPhim(list, "Hoạt hình");
+                DSPhimHoatHinh = Enumerable.Range(0, array6.Count()).Select(i => array6[i]).ToList();
+                var array7 = xuatPhim(list, "Kinh dị");
+                DSPhimKinhDi = Enumerable.Range(0, array7.Count()).Select(i => array7[i]).ToList();
 
                 DSTheLoai = new ObservableCollection<THELOAI>(qlp.THELOAIs.ToList());
                 DSPhim = new ObservableCollection<PHIM>(qlp.PHIMs.ToList());
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
             }
+        }
+        public List<PHIM> xuatPhim(List<PHIM> list,String str)
+        {
+            List<PHIM> array = new List<PHIM>();
+            foreach (var i in list)
+            {
+                if (i.TENTHELOAI.Equals(str))
+                {
+                    array.Add(i);
+                }
+            }
+            return array;
         }
         public void Refresh()
         {

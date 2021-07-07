@@ -271,7 +271,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBox Height="80" Width="700" FontSize="30" Margin="0,20,0,0"
-                             VerticalContentAlignment="Center" Padding="10,10,0,0" x:Name="txtEmail"
+                             VerticalContentAlignment="Center" Padding="10,10,0,0" Name="txtEmail"
                                      Validation.ErrorTemplate="{StaticResource errorTemplate}">
                                 <TextBox.Text>
                                     <Binding Path="EMAIL" ValidatesOnDataErrors="True"

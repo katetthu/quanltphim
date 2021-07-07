@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyMovies.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,37 @@ namespace QuanLyMovies.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (!txtPass.Password.Equals(txtConPass.Password))
+            {
+                MessageBox.Show("ngu");
+            }
+            else
+            {
+                bool check = false;
+                var item = txtEmail.Text;
+                using (var qlnd = new QuanLyPhimEntities5())
+                {
+
+                    foreach (var i in qlnd.TAIKHOANs)
+                    {
+                        if (i.EMAIL.Equals(item))
+                        {
+                            i.PASS = txtPass.Password;
+                            check = true;
+                        }
+                    }
+                    qlnd.SaveChanges();
+                }
+                if (check)
+                {
+                    var wdn = new DangNhapView();
+                    wdn.Show();
+                }
+                else
+                {
+                    MessageBox.Show("doot");
+                }
+            }
         }
     }
 }

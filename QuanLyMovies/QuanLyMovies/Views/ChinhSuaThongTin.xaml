@@ -4,9 +4,145 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
+         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         mc:Ignorable="d"
-        Title="ChinhSuaThongTin" Height="450" Width="800">
+        Title="ChinhSuaThongTin" Height="1460" Width="1920" WindowState="Maximized">
+    <Window.DataContext>
+        <m:TAIKHOAN/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Edit">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="Next">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="Red" CornerRadius="5">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="back">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource="back.png"/>
+                            </Border.Background>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="errorTemplate">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
+                          FontWeight="Bold">!</TextBlock>
+                <Border BorderBrush="Red" BorderThickness="3" >
+                    <Grid>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"
+                               VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" Padding="4"/>
+                    </Grid>
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label FontSize="40" HorizontalContentAlignment="Left" Margin="0,0,0,20">Tài khoản</Label>
+            <Rectangle Width="1000" Height="2" Fill="Gray"/>
+            <Label FontSize="30" HorizontalContentAlignment="Left" Foreground="Gray" Margin="0,20,0,0">TƯ CÁCH THÀNH VIÊN VÀ TÍNH PHÍ</Label>
+            <Button Height="50" Width="300" FontSize="25" HorizontalAlignment="Left" Margin="20">Hủy tư cách thành viên</Button>
+            <StackPanel Orientation="Vertical" Width="800">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox VerticalContentAlignment="Center" BorderBrush="{x:Null}"
+                         FontSize="25" Height="55" Name="txtCard" Width="500">
+
+                    </TextBox>
+                    <Button Margin="10" Width="200" FontSize="20" Foreground="Blue" Background="{x:Null}" Style="{StaticResource Edit }"
+                            BorderBrush="{x:Null}">Thay đổi số tài khoản</Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="800">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox VerticalContentAlignment="Center" FontSize="25" Height="55" Width="500" BorderBrush="{x:Null}"
+                         Name="txtPhone">
+
+                    </TextBox>
+                    <Button Margin="10" Width="202" FontSize="20" Foreground="Blue" Background="{x:Null}" 
+                            Style="{StaticResource Edit }" BorderBrush="{x:Null}">Thay đổi số điện thoại</Button>
+
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="800">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox VerticalContentAlignment="Center" FontSize="25" Height="55" Width="500" Name="txtName" BorderBrush="{x:Null}"></TextBox>
+                    <Button Margin="10" Width="223" FontSize="20" Foreground="Blue" Background="{x:Null}" 
+                            Style="{StaticResource Edit }" BorderBrush="{x:Null}">Thay đổi tên người dùng</Button>
+
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="800">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox VerticalContentAlignment="Center" FontSize="25" Height="55"  Width="500"  BorderBrush="{x:Null}"
+                         Name="txtDate">
+
+                    </TextBox>
+                    <Button Margin="10" Width="200" FontSize="20" Foreground="Blue" Background="{x:Null}" 
+                            Style="{StaticResource Edit }" BorderBrush="{x:Null}">Thay đổi ngày gia hạn</Button>
+
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="800">
+                <TextBlock FontSize="15" FontWeight="Light" Margin="10,0,0,0">Confirm password</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <PasswordBox Name="txtConPass" Margin="10,7" VerticalContentAlignment="Center" FontSize="25" Width="500" Height="55" ></PasswordBox>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Width="1000" Height="2" Fill="Gray" Margin="0,50,0,0"/>
+            <Label FontSize="30" HorizontalContentAlignment="Left" Foreground="Gray">THÔNG TIN GÓI DỊCH VỤ</Label>
+            <TextBox Height="50" Width="300" FontSize="30" HorizontalAlignment="Left" Margin="20"></TextBox>
+
+
+            <StackPanel Orientation="Horizontal">
+                <Button Height="72" Width="128" FontSize="40" Foreground="White" Margin="0,30,0,0"
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center" BorderBrush="{x:Null}"
+                                    HorizontalContentAlignment="Center" Click="btnBackTab_Click"  Style="{StaticResource back}">
+                </Button>
+                <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
+                                    VerticalContentAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource Next}"
+                                    HorizontalContentAlignment="Center" Margin="0,30,0,0" >
+                    Update
+                </Button>
+            </StackPanel>
+
+
+        </StackPanel>
     </Grid>
 </Window>

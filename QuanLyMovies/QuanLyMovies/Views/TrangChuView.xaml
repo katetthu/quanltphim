@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:QuanLyMovies.Views"
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         mc:Ignorable="d"
-        Title="TrangChuView" Height="700" Width="1000" 
+        Title="TrangChuView" Height="1360.15" Width="1000" 
         
         WindowStartupLocation="CenterScreen" 
         SizeToContent="WidthAndHeight" Foreground="White"  WindowState="Maximized">
+    <Window.DataContext>
+        <m:PHIM></m:PHIM>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
@@ -65,24 +68,20 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <DataTemplate DataType="{x:Type m:PHIM}">
-            <GroupBox>
-                <GroupBox.Header>
-                    <TextBlock Text="{Binding TENTHELOAI}"/>
-                </GroupBox.Header>
-                <Grid Margin="10" Height="300" Width="220" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
-                    <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
+            <Grid Margin="10" Height="300" Width="220" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                <Rectangle Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}
                     ,Path=Width}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid},
                     Path=Height}" RadiusX="2" RadiusY="2">
-                        <Rectangle.Fill>
-                            <SolidColorBrush Color="Gray"/>
-                        </Rectangle.Fill>
-                        <Rectangle.Effect>
-                            <BlurEffect Radius="5"/>
-                        </Rectangle.Effect>
-                    </Rectangle>
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Gray"/>
+                    </Rectangle.Fill>
+                    <Rectangle.Effect>
+                        <BlurEffect Radius="5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
 
 
-                    <!--<Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
+                <!--<Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
                         Background="White">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="{Binding HINHANH}" Stretch="Fill"
@@ -93,48 +92,47 @@
                     </Grid>
                 </Border>-->
 
-                    <Grid.LayoutTransform>
-                        <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    </Grid.LayoutTransform>
+                <Grid.LayoutTransform>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Grid.LayoutTransform>
 
-                    <Grid.Style>
-                        <Style TargetType="Grid">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True">
-                                    <DataTrigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX"
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX"
                                                              BeginTime="0:0:0" To="2" Duration="0:0:1">
-                                                    <DoubleAnimation.EasingFunction>
-                                                        <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
-                                                    </DoubleAnimation.EasingFunction>
-                                                </DoubleAnimation>
-                                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY"
+                                                <DoubleAnimation.EasingFunction>
+                                                    <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY"
                                                              BeginTime="0:0:0" To="2" Duration="0:0:1">
-                                                    <DoubleAnimation.EasingFunction>
-                                                        <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
-                                                    </DoubleAnimation.EasingFunction>
-                                                </DoubleAnimation>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </DataTrigger.EnterActions>
-                                    <DataTrigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleX" 
+                                                <DoubleAnimation.EasingFunction>
+                                                    <ElasticEase EasingMode="EaseInOut" Oscillations="2"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleX" 
                                                              Duration="0:0:0.25"/>
-                                                <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleY" 
+                                            <DoubleAnimation Storyboard.TargetProperty ="LayoutTransform.ScaleY" 
                                                              Duration="0:0:0.25"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </DataTrigger.ExitActions>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Grid.Style>
-                </Grid>
-            </GroupBox>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
         </DataTemplate>
     </Window.Resources>
 
@@ -182,7 +180,7 @@
                     </Menu.Background>
                     <MenuItem Height="70" Width="72">
                         <!--<TextBlock Text="{Binding }"/>-->
-                        <Button Height="40" VerticalContentAlignment="Center" >Chỉnh sửa thông tin</Button>
+                        <Button Height="40" VerticalContentAlignment="Center" Click="Button_Click" >Chỉnh sửa thông tin</Button>
                         <Button Height="40" VerticalContentAlignment="Center">Lịch sử thanh toán</Button>
                         <Button Height="40" VerticalContentAlignment="Center" Click="btDangXuat">Đăng xuất</Button>
                     </MenuItem>
@@ -191,88 +189,147 @@
             </StackPanel>
         </Grid>
 
-        <ScrollViewer >
-            <StackPanel Grid.Row="1">
-                <StackPanel.Resources>
-                    <Style TargetType="ItemsControl">
-                        <Setter Property="ItemsPanel">
-                            <Setter.Value>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel Orientation="Horizontal"/>
-                                </ItemsPanelTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="20"/>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition Width="20"/>
-                                        </Grid.ColumnDefinitions>
 
-                                        <ScrollViewer Name="sv" Grid.Column="1" HorizontalScrollBarVisibility="Hidden"
+        <StackPanel Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="ItemsControl">
+                    <Setter Property="ItemsPanel">
+                        <Setter.Value>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="20"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ScrollViewer Name="sv" Grid.Column="1" HorizontalScrollBarVisibility="Hidden"
                                                   VerticalScrollBarVisibility="Disabled">
-                                            <ItemsPresenter/>
-                                        </ScrollViewer>
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
 
-                                        <RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}"
+                                    <RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}"
                                                   CommandTarget="{Binding ElementName=sv}" ClickMode="Hover">
-                                            <RepeatButton.Content>
-                                                <Path Width="30" Height="30" Stretch="Fill"
+                                        <RepeatButton.Content>
+                                            <Path Width="30" Height="30" Stretch="Fill"
                                                   VerticalAlignment="Center" HorizontalAlignment="Center"
                                                   Fill="Gray" Data="M 30 0 L 0 15 L 30 30 Z"/>
-                                            </RepeatButton.Content>
-                                        </RepeatButton>
-                                        <RepeatButton Command="{x:Static ScrollBar.LineRightCommand}" Grid.Column="2"
+                                        </RepeatButton.Content>
+                                    </RepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.LineRightCommand}" Grid.Column="2"
                                                   CommandTarget="{Binding ElementName=sv}" ClickMode="Hover">
-                                            <RepeatButton.Content>
-                                                <Path Width="30" Height="30" Stretch="Fill"
+                                        <RepeatButton.Content>
+                                            <Path Width="30" Height="30" Stretch="Fill"
                                                   VerticalAlignment="Center" HorizontalAlignment="Center"
                                                   Fill="Gray" Data="M 0 0 L 30 15 L 0 30 Z"/>
-                                            </RepeatButton.Content>
-                                        </RepeatButton>
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </StackPanel.Resources>
+                                        </RepeatButton.Content>
+                                    </RepeatButton>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
 
-                <TabControl Height="441" Background="Black" Name="tabcontrolll" BorderBrush="{x:Null}">
-                   
-                    <TabItem Header="Trang Chủ" Background="Black" Foreground="White" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
-                        <ItemsControl ItemsSource="{Binding DSMovie}" Margin="0,40,0,0" />
-                    </TabItem>
-                    <TabItem  Header="Phim Thịnh Hành" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+            <TabControl Height="900" Background="Black" Name="tabcontrolll" BorderBrush="{x:Null}">
 
-                    </TabItem>
-                    <TabItem Header="Danh sách của tôi" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+                <TabItem Header="Trang Chủ" Background="Black" Foreground="White" BorderBrush="{x:Null}" 
+                             Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
+                    <ScrollViewer Margin="0,38,0,0" Cursor="ScrollAll">
+                        <StackPanel >
+                            
+                            <GroupBox BorderThickness="0">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Top 10 phim được xem nhiều nhất" FontSize="30" Margin="20,40,0,20" FontWeight="Bold"/>
+                                </GroupBox.Header>
+                                <ItemsControl ItemsSource="{Binding DSMovie}" />
+                            </GroupBox>
+                            <GroupBox BorderThickness="0">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Phim Âu - Mỹ" FontSize="30" Margin="20,40,0,20" FontWeight="Bold"/>
+                                </GroupBox.Header>
+                                <ItemsControl ItemsSource="{Binding DSPhimVienTuong}" />
+                            </GroupBox>
 
-                    </TabItem>
-                    <TabItem Header="Thể loại" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
+                            <GroupBox BorderThickness="0">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Loạt phim Tình Cảm lãng mạn" FontSize="30" Margin="20,40,0,20" FontWeight="Bold"/>
+                                </GroupBox.Header>
+                                <ItemsControl ItemsSource="{Binding DSPhimTinhCam}"/>
+                            </GroupBox>
 
-                    </TabItem>
-                </TabControl>
+                            <GroupBox BorderThickness="0">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Phim Hành Động - gây cấn hấp dẫn" FontSize="30" Margin="20,40,0,20" FontWeight="Bold"/>
+                                </GroupBox.Header>
+                                <ItemsControl ItemsSource="{Binding DSPhimHanhDong}"/>
+                            </GroupBox>
+
+                            <GroupBox BorderThickness="0">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Phim Phiêu Lưu - Hành Động kịch tính" FontSize="30" Margin="20,40,0,20" FontWeight="Bold"/>
+                                </GroupBox.Header>
+                                <ItemsControl ItemsSource="{Binding DSPhimPhieuLuu}"/>
+                            </GroupBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem  Header="Phim Thịnh Hành" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+                    <ListView VerticalAlignment="Top" Height="781" Background="{x:Null}" Foreground="White"
+                                  ItemsSource="{Binding }" BorderBrush="{x:Null}" Margin="0,57,0,0">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="5" Margin="10"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Image Source="{Binding HINHANH}" Width="300" Height="500"/>
+                                    <TextBlock Text="{Binding TENPHIM}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </TabItem>
+                <TabItem Header="Danh sách của tôi" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
+
+                </TabItem>
+                <TabItem Header="Thể loại" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
+                    <StackPanel Margin="0,33,0,0">
+                        <ComboBox  Height="50" Width="200" Margin="20" HorizontalAlignment="Left" />
+                        <ListView VerticalAlignment="Top" Height="740" Background="{x:Null}" Foreground="White"
+                                  ItemsSource="{Binding DSPhimTinhCam}" BorderBrush="{x:Null}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="5" Margin="10"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Image Source="{Binding HINHANH}" Width="300" Height="500"/>
+                                        <TextBlock Text="{Binding TENPHIM}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </TabItem>
+
+            </TabControl>
 
 
 
-                <!--<GroupBox BorderThickness="0">
-                    <GroupBox.Header>
-                        <TextBlock Text="Tình Cảm" FontSize="20"/>
-                    </GroupBox.Header>
-                    <ItemsControl ItemsSource="{Binding DSMovie}"/>
-                </GroupBox>
-                <GroupBox BorderThickness="0">
-                    <GroupBox.Header>
-                        <TextBlock Text="Hành Động" FontSize="20"/>
-                    </GroupBox.Header>
-                    <ItemsControl ItemsSource="{Binding DSMovie}"/>
-                </GroupBox>-->
+        </StackPanel>
 
-            </StackPanel>
-        </ScrollViewer>
     </StackPanel>
 
 </Window>

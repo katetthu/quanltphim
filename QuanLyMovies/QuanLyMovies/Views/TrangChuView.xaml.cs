@@ -63,5 +63,11 @@ namespace QuanLyMovies.Views
             wdn.Show();
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var wdn = new ChinhSuaThongTin();
+            wdn.Show();
+        }
     }
 }

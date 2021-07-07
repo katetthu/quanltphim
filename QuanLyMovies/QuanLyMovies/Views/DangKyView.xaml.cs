@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyMovies.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,13 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class DangKyView : Window
     {
-        
-        public DangKyView()
+
+        public DangKyView(String txt)
         {
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
+            if (!txt.Equals(""))
+                txtEmailHien.Text = txt;
 
         }
 
@@ -45,7 +48,45 @@ namespace QuanLyMovies.Views
 
         private void btDangNhap(object sender, RoutedEventArgs e)
         {
-            var wdn = new DangNhapView();
+            if (!txtPass.Password.Equals(txtConPass.Password))
+            {
+                MessageBox.Show("sai");
+            }
+            else
+            {
+
+
+                using (var qlnd = new QuanLyPhimEntities5())
+                {
+                    String[] list = txtDate.Text.Trim().Trim().Split(' ');
+                    DateTime dateTime = DateTime.ParseExact(list[0], "MM/dd/yyyy", null);
+
+                    var loai = "Basic";
+                    try
+                    {
+                        loai = cbbTenLoaiThanhToan.SelectedItem.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.ToString();
+                    }
+                    var item = new TAIKHOAN();
+                    item.EMAIL = txtEmailHien.Text;
+                    item.PASS = txtConPass.Password;
+                    item.NGAYHETHAN = dateTime;
+                    item.PHONENUMBER = Int32.Parse(txtPhone.Text);
+                    item.SOTAIKHOAN = Convert.ToDouble(txtCard.Text);
+                    item.TENNGUOIDUNG = txtName.Text;
+                    item.TENLOAITHANHTOAN = loai;
+
+                    qlnd.TAIKHOANs.Add(item);
+                    qlnd.SaveChanges();
+                }
+
+                var wdn = new DangNhapView();
+                wdn.Show();
+
+            }
         }
     }
 }

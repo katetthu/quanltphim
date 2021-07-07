@@ -47,7 +47,7 @@ namespace QuanLyMovies.Views
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var wdn = new DangKyView();
+            var wdn = new DangKyView("");
             wdn.Show();
         }
     }
