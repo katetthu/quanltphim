@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities5">
+  <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities6">
     <EntitySetMapping Name="LOAITHANHTOANs">
       <EntityTypeMapping TypeName="QuanLyPhimModel.LOAITHANHTOAN">
         <MappingFragment StoreEntitySet="LOAITHANHTOAN">

@@ -7,7 +7,7 @@
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
         
-        mc:Ignorable="d" Height="700" Width="1000" 
+        mc:Ignorable="d" Height="700" Width="1459" 
         WindowStartupLocation="CenterScreen" Title="Admin Dashboard" WindowState="Maximized"
         SizeToContent="WidthAndHeight" Foreground="White" FontSize="20" Background="Black">
     <Window.DataContext>
@@ -167,23 +167,33 @@
                                  Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Tên Thể Loại:</Label>
-                        <TextBox  Text="{Binding ItemPhim.TENTHELOAI}" 
+                        <TextBox  Name="txtTheLoai"  Text="{Binding ItemPhim.TENTHELOAI}" 
                                  Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
 
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Tên Phim</Label>
-                        <TextBox  Text="{Binding ItemPhim.TENPHIM}" 
+                        <TextBox   Name="txtTenPhim" Text="{Binding ItemPhim.TENPHIM}" 
                                  Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
+                        
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">Video:</Label>
-                        <TextBox  Text="{Binding ItemPhim.VIDEO}"
-                                 Margin="10" Grid.Column="4" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
-
+                        <StackPanel Grid.Column="4" Grid.Row="2" Orientation="Horizontal">
+                        <TextBox  Name="dataVideo"  Text="{Binding ItemPhim.VIDEO}" Width="351"
+                                 Margin="10"  VerticalContentAlignment="Center" FontSize="25"/>
+                            <Button Margin="10" Width="80" Click="btBrowseVideo">Browse</Button>
+                        </StackPanel>
+                        
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Hình Ảnh:</Label>
-                        <TextBox  Text="{Binding ItemPhim.HINHANH}"
-                                 Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
-
+                        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0">
+                            <TextBox Name="dataImage"  Text="{Binding ItemPhim.HINHANH}" Width="351"
+                                 Margin="10" VerticalContentAlignment="Center" FontSize="25"/>
+                            <Button Margin="10" Width="80" Click="btBrowse">Browse</Button>
+                        </StackPanel>
+                        
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Thông tin:</Label>
-                        <TextBox  Text="{Binding ItemPhim.INFO}"
-                                 Margin="10" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" FontSize="25"/>
+                        <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" >
+                            <TextBox  Name="dataInfo"  Text="{Binding ItemPhim.INFO}" Width="351"
+                                 Margin="10"  VerticalContentAlignment="Center" FontSize="25"/>
+                            <Button Margin="10" Width="80" Click="btBrowseInfo">Browse</Button>
+                        </StackPanel>
                     </Grid>
                     <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" >
                         <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddVideo}" Margin="20,0">Add</Button>
@@ -207,7 +217,7 @@
                         </ListView.View>
                     </ListView>
                     <StackPanel HorizontalAlignment="Center">
-                    
+
                         <Label  Grid.Column="0" VerticalAlignment="Center" Height="37" HorizontalAlignment="Left" >Mã thể loại:</Label>
                         <TextBox Name="txtMaTheLoai" Text="{Binding ItemTheLoai.MATHELOAI}"
                                  Margin="10" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
@@ -215,14 +225,14 @@
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="0,20,0,0">Tên thể loại</Label>
                         <TextBox  Text="{Binding ItemTheLoai.TENTHELOAI}"
                                  Margin="10" Grid.Column="3" Grid.Row="0" VerticalContentAlignment="Center" FontSize="25"/>
-                       
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddTheLoai}" Margin="20,0">Add</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteTheLoai}"
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                            <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdAddTheLoai}" Margin="20,0">Add</Button>
+                            <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdDeleteTheLoai}"
                                 CommandParameter ="{Binding ElementName=txtMaTheLoai,Path=Text}" 
                                  Margin="20,0">Delete</Button>
-                        <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateTheLoai}" Margin="20,0,50,0">Update</Button>
-                    </StackPanel>
+                            <Button FontSize="20" Height="50" Width="120" Command="{Binding CmdUpdateTheLoai}" Margin="20,0,50,0">Update</Button>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

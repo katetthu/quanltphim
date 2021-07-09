@@ -81,7 +81,7 @@
                 </Rectangle>
 
 
-                <!--<Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
+                <Border BorderBrush="BlueViolet" CornerRadius="2" BorderThickness="1"
                         Background="White">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Image Source="{Binding HINHANH}" Stretch="Fill"
@@ -90,7 +90,7 @@
                                    Path=Height}" Opacity="30"/>
                         <MediaElement Name="video" Source="{Binding VIDEO}" LoadedBehavior="Manual"/>
                     </Grid>
-                </Border>-->
+                </Border>
 
                 <Grid.LayoutTransform>
                     <ScaleTransform ScaleX="1" ScaleY="1"/>
@@ -283,7 +283,7 @@
                 </TabItem>
                 <TabItem  Header="Phim Thịnh Hành" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="220" FontSize="20" Margin="0,0,0,-25">
                     <ListView VerticalAlignment="Top" Height="781" Background="{x:Null}" Foreground="White"
-                                  ItemsSource="{Binding }" BorderBrush="{x:Null}" Margin="0,57,0,0">
+                                  ItemsSource="{Binding DSMovie}" BorderBrush="{x:Null}" Margin="0,57,0,0">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="5" Margin="10"/>
@@ -304,9 +304,12 @@
                 </TabItem>
                 <TabItem Header="Thể loại" Foreground="White" Background="Black" BorderBrush="{x:Null}" Cursor="Hand" Width="150" FontSize="20" Margin="0,0,0,-25">
                     <StackPanel Margin="0,33,0,0">
-                        <ComboBox  Height="50" Width="200" Margin="20" HorizontalAlignment="Left" />
-                        <ListView VerticalAlignment="Top" Height="740" Background="{x:Null}" Foreground="White"
-                                  ItemsSource="{Binding DSPhimTinhCam}" BorderBrush="{x:Null}">
+                        <ComboBox  Height="50" Width="200" Margin="20" HorizontalAlignment="Left" 
+                                   ItemsSource="{Binding DSTheLoai}" Name="cbtheloai"
+                                 DisplayMemberPath="TENTHELOAI" SelectedValue="{Binding TENTHELOAI, Mode=OneWayToSource}"/>
+                        <ListView Name="lvhs" VerticalAlignment="Top" Height="740" Background="{x:Null}" Foreground="White"
+                                  ItemsSource="{Binding ElementName=cbtheloai,Path=SelectedValue.PHIMs}"
+                                  SelectedValue="{Binding Phim, Mode=OneWayToSource}" BorderBrush="{x:Null}" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="5" Margin="10"/>
@@ -315,8 +318,10 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <Image Source="{Binding HINHANH}" Width="300" Height="500"/>
-                                        <TextBlock Text="{Binding TENPHIM}" />
+                                        <Image Source="{Binding ElementName=lvhs, Path=SelectedValue.HINHANH, 
+                                                          Mode=OneWay}" Width="300" Height="500" />
+                                        <TextBox Text="{Binding ElementName=lvhs, Path=SelectedValue.TENPHIM, 
+                                                          Mode=OneWay}" Margin="3" Width="200"  Height="50" Foreground="White"></TextBox>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

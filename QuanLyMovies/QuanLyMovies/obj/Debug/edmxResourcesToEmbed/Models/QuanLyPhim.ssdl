@@ -35,15 +35,31 @@
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>
-      <PropertyRef Name="MATHELOAI" />
+      <PropertyRef Name="TENTHELOAI" />
     </Key>
-    <Property Name="MATHELOAI" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" />
+    <Property Name="MATHELOAI" Type="varchar" MaxLength="10" />
+    <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Phim_TheLoai">
+    <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THELOAI">
+        <PropertyRef Name="TENTHELOAI" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="TENTHELOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="QuanLyPhimModelStoreContainer">
     <EntitySet Name="LOAITHANHTOAN" EntityType="Self.LOAITHANHTOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Phim_TheLoai" Association="Self.FK_Phim_TheLoai">
+      <End Role="THELOAI" EntitySet="THELOAI" />
+      <End Role="PHIM" EntitySet="PHIM" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

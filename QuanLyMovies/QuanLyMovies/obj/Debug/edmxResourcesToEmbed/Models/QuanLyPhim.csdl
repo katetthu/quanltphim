@@ -18,6 +18,7 @@
     <Property Name="VIDEO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="HINHANH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="INFO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="THELOAI" Relationship="Self.FK_Phim_TheLoai" FromRole="PHIM" ToRole="THELOAI" />
   </EntityType>
   <EntityType Name="TAIKHOAN">
     <Key>
@@ -35,15 +36,32 @@
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>
-      <PropertyRef Name="MATHELOAI" />
+      <PropertyRef Name="TENTHELOAI" />
     </Key>
-    <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PHIMs" Relationship="Self.FK_Phim_TheLoai" FromRole="THELOAI" ToRole="PHIM" />
   </EntityType>
-  <EntityContainer Name="QuanLyPhimEntities5" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_Phim_TheLoai">
+    <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THELOAI">
+        <PropertyRef Name="TENTHELOAI" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="TENTHELOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyPhimEntities6" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
     <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
     <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
     <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />
+    <AssociationSet Name="FK_Phim_TheLoai" Association="Self.FK_Phim_TheLoai">
+      <End Role="THELOAI" EntitySet="THELOAIs" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

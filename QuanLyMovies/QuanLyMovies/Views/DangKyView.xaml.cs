@@ -56,7 +56,7 @@ namespace QuanLyMovies.Views
             {
 
 
-                using (var qlnd = new QuanLyPhimEntities5())
+                using (var qlnd = new QuanLyPhimEntities6())
                 {
                     String[] list = txtDate.Text.Trim().Trim().Split(' ');
                     DateTime dateTime = DateTime.ParseExact(list[0], "MM/dd/yyyy", null);

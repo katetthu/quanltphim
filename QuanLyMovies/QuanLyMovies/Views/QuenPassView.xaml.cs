@@ -35,7 +35,7 @@ namespace QuanLyMovies.Views
             {
                 bool check = false;
                 var item = txtEmail.Text;
-                using (var qlnd = new QuanLyPhimEntities5())
+                using (var qlnd = new QuanLyPhimEntities6())
                 {
 
                     foreach (var i in qlnd.TAIKHOANs)

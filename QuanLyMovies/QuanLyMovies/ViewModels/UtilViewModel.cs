@@ -165,10 +165,11 @@ namespace QuanLyMovies.ViewModels
             CmdAddTheLoai = new RelayCommand<string>(AddTheLoai);
             CmdDeleteTheLoai = new RelayCommand<string>(DeleteTheLoai);
 
-            using (var qlp = new QuanLyPhimEntities5())
+            using (var qlp = new QuanLyPhimEntities6())
             {
                 var list = new List<PHIM>(qlp.PHIMs.ToList());
-                DSMovie = Enumerable.Range(0, list.Count()).Select(i => list[i]).ToList();
+                var array0 = radomPhim(list, 15);
+                DSMovie = Enumerable.Range(0, array0.Count()).Select(i => list[i]).ToList();
              
                 var array= xuatPhim(list, "Viễn tưởng");
                 DSPhimVienTuong = Enumerable.Range(0, array.Count()).Select(i => array[i]).ToList();
@@ -192,6 +193,28 @@ namespace QuanLyMovies.ViewModels
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
             }
         }
+        public List<PHIM> radomPhim(List<PHIM> list, int n)
+        {
+            List<PHIM> array = new List<PHIM>();
+            Random rd = new Random();
+            List<int> listRd = new List<int>();
+            for(int i = 0; i < n; i++)
+            {
+                int number = rd.Next(0, list.Count-1);
+                if (listRd.Contains(i))
+                {
+                    continue;
+                    i--;
+                }
+                listRd.Add(i);
+            }
+
+            foreach (var i in listRd)
+            {
+                array.Add(list[i]);
+            }
+            return array;
+        }
         public List<PHIM> xuatPhim(List<PHIM> list,String str)
         {
             List<PHIM> array = new List<PHIM>();
@@ -206,7 +229,7 @@ namespace QuanLyMovies.ViewModels
         }
         public void Refresh()
         {
-            using (var qlp = new QuanLyPhimEntities5())
+            using (var qlp = new QuanLyPhimEntities6())
             {
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
                 DSPhim = new ObservableCollection<PHIM>(qlp.PHIMs.ToList());
@@ -216,29 +239,32 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var ndCur = DSNguoiDung.Single(ng => ng.EMAIL == ItemNguoiDung.EMAIL);
                 convertNd(ndCur, ItemNguoiDung);
                 var ndCur1 = qlnd.TAIKHOANs.Single(ng => ng.EMAIL == ItemNguoiDung.EMAIL);
                 convertNd(ndCur1, ItemNguoiDung);
-
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
         }
         void AddNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 qlnd.TAIKHOANs.Add(ItemNguoiDung);
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                 Refresh();
             }
         }
         void DeleteNguoiDung(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var nd = new TAIKHOAN();
 
@@ -252,6 +278,8 @@ namespace QuanLyMovies.ViewModels
                 DSNguoiDung.Remove(nd);
                 qlnd.Entry(nd).State = System.Data.Entity.EntityState.Deleted;
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
         }
         void convertNd(TAIKHOAN ndCur1, TAIKHOAN ItemNguoiDung)
@@ -265,7 +293,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var ndCur = DSPhim.Single(ng => ng.MAPHIM == ItemPhim.MAPHIM);
                 convertVd(ndCur, ItemPhim);
@@ -273,21 +301,24 @@ namespace QuanLyMovies.ViewModels
                 convertVd(ndCur1, ItemPhim);
 
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         void AddVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 qlnd.PHIMs.Add(ItemPhim);
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 Refresh();
             }
         }
         void DeleteVideo(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var nd = new PHIM();
 
@@ -301,6 +332,8 @@ namespace QuanLyMovies.ViewModels
                 DSPhim.Remove(nd);
                 qlnd.Entry(nd).State = System.Data.Entity.EntityState.Deleted;
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
         }
         void convertVd(PHIM ndCur1, PHIM ItemNguoiDung)
@@ -313,7 +346,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var ndCur = DSTheLoai.Single(ng => ng.MATHELOAI == ItemTheLoai.MATHELOAI);
                 convertTl(ndCur, ItemTheLoai);
@@ -321,11 +354,13 @@ namespace QuanLyMovies.ViewModels
                 convertTl(ndCur1, ItemTheLoai);
 
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
         }
         void AddTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 qlnd.THELOAIs.Add(ItemTheLoai);
                 qlnd.SaveChanges();
@@ -335,7 +370,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteTheLoai(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities5())
+            using (var qlnd = new QuanLyPhimEntities6())
             {
                 var nd = new THELOAI();
 
@@ -349,6 +384,8 @@ namespace QuanLyMovies.ViewModels
                 DSTheLoai.Remove(nd);
                 qlnd.Entry(nd).State = System.Data.Entity.EntityState.Deleted;
                 qlnd.SaveChanges();
+                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
         }
         void convertTl(THELOAI ndCur1, THELOAI ItemNguoiDung)
