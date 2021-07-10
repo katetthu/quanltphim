@@ -78,7 +78,7 @@
             <Label FontSize="40" HorizontalContentAlignment="Left" Margin="0,0,0,20">Tài khoản</Label>
             <Rectangle Width="1000" Height="2" Fill="Gray"/>
             <Label FontSize="30" HorizontalContentAlignment="Left" Foreground="Gray" Margin="0,20,0,0">TƯ CÁCH THÀNH VIÊN VÀ TÍNH PHÍ</Label>
-            <Button Height="50" Width="300" FontSize="25" HorizontalAlignment="Left" Margin="20">Hủy tư cách thành viên</Button>
+            <Button  Height="50" Width="300" FontSize="25" HorizontalAlignment="Left" Margin="20" Click="Button_Click">Hủy tư cách thành viên</Button>
             <StackPanel Orientation="Vertical" Width="800">
                 <StackPanel Orientation="Horizontal">
                     <TextBox VerticalContentAlignment="Center" BorderBrush="{x:Null}"
@@ -127,7 +127,7 @@
             </StackPanel>
             <Rectangle Width="1000" Height="2" Fill="Gray" Margin="0,50,0,0"/>
             <Label FontSize="30" HorizontalContentAlignment="Left" Foreground="Gray">THÔNG TIN GÓI DỊCH VỤ</Label>
-            <TextBox Height="50" Width="300" FontSize="30" HorizontalAlignment="Left" Margin="20"></TextBox>
+            <TextBox Name="txtGoi" Height="50" Width="300" FontSize="30" HorizontalAlignment="Left" Margin="20"></TextBox>
 
 
             <StackPanel Orientation="Horizontal">
@@ -137,7 +137,8 @@
                 </Button>
                 <Button Height="80" Width="500" FontSize="40" Background="red" Foreground="White"
                                     VerticalContentAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource Next}"
-                                    HorizontalContentAlignment="Center" Margin="0,30,0,0" >
+                                    HorizontalContentAlignment="Center" Margin="0,30,0,0"
+                                    Click="btnUpdate_Click">
                     Update
                 </Button>
             </StackPanel>

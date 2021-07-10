@@ -40,16 +40,32 @@
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
-            <PropertyRef Name="MATHELOAI" />
+            <PropertyRef Name="TENTHELOAI" />
           </Key>
-          <Property Name="MATHELOAI" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" />
+          <Property Name="MATHELOAI" Type="varchar" MaxLength="10" />
+          <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <Association Name="FK_PHIM_THELOAI">
+          <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+          <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAI">
+              <PropertyRef Name="TENTHELOAI" />
+            </Principal>
+            <Dependent Role="PHIM">
+              <PropertyRef Name="TENTHELOAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuanLyPhimModelStoreContainer">
           <EntitySet Name="LOAITHANHTOAN" EntityType="Self.LOAITHANHTOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PHIM_THELOAI" Association="Self.FK_PHIM_THELOAI">
+            <End Role="THELOAI" EntitySet="THELOAI" />
+            <End Role="PHIM" EntitySet="PHIM" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -74,6 +90,7 @@
           <Property Name="VIDEO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="HINHANH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="INFO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="THELOAI" Relationship="Self.FK_PHIM_THELOAI" FromRole="PHIM" ToRole="THELOAI" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -91,23 +108,40 @@
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
-            <PropertyRef Name="MATHELOAI" />
+            <PropertyRef Name="TENTHELOAI" />
           </Key>
-          <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MATHELOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TENTHELOAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PHIMs" Relationship="Self.FK_PHIM_THELOAI" FromRole="THELOAI" ToRole="PHIM" />
         </EntityType>
-        <EntityContainer Name="QuanLyPhimEntities5" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_PHIM_THELOAI">
+          <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+          <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAI">
+              <PropertyRef Name="TENTHELOAI" />
+            </Principal>
+            <Dependent Role="PHIM">
+              <PropertyRef Name="TENTHELOAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyPhimEntities7" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
           <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
           <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
           <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />
+          <AssociationSet Name="FK_PHIM_THELOAI" Association="Self.FK_PHIM_THELOAI">
+            <End Role="THELOAI" EntitySet="THELOAIs" />
+            <End Role="PHIM" EntitySet="PHIMs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities5">
+        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities7">
           <EntitySetMapping Name="LOAITHANHTOANs">
             <EntityTypeMapping TypeName="QuanLyPhimModel.LOAITHANHTOAN">
               <MappingFragment StoreEntitySet="LOAITHANHTOAN">

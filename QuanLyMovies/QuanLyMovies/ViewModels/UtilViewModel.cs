@@ -1,4 +1,5 @@
-﻿using QuanLyMovies.Command;
+﻿using LiveCharts;
+using QuanLyMovies.Command;
 using QuanLyMovies.Models;
 using QuanLyMovies.Views;
 using System;
@@ -109,11 +110,6 @@ namespace QuanLyMovies.ViewModels
             get => (ObservableCollection<TAIKHOAN>)GetValue(NguoiDungPeoperty);
             set => SetValue(NguoiDungPeoperty, value);
         }
-        //public TAIKHOAN NguoiDung
-        //{
-        //    get => (TAIKHOAN)GetValue(NguoiDungPeoperty);
-        //    set => SetValue(NguoiDungPeoperty, value);
-        //}
         public TAIKHOAN ItemNguoiDung
         {
             get => (TAIKHOAN)GetValue(ItemNguoiDungPeoperty);
@@ -165,13 +161,13 @@ namespace QuanLyMovies.ViewModels
             CmdAddTheLoai = new RelayCommand<string>(AddTheLoai);
             CmdDeleteTheLoai = new RelayCommand<string>(DeleteTheLoai);
 
-            using (var qlp = new QuanLyPhimEntities6())
+            using (var qlp = new QuanLyPhimEntities7())
             {
                 var list = new List<PHIM>(qlp.PHIMs.ToList());
                 var array0 = radomPhim(list, 15);
                 DSMovie = Enumerable.Range(0, array0.Count()).Select(i => list[i]).ToList();
-             
-                var array= xuatPhim(list, "Viễn tưởng");
+
+                var array = xuatPhim(list, "Viễn tưởng");
                 DSPhimVienTuong = Enumerable.Range(0, array.Count()).Select(i => array[i]).ToList();
                 var array1 = xuatPhim(list, "Tình cảm");
                 DSPhimTinhCam = Enumerable.Range(0, array1.Count()).Select(i => array1[i]).ToList();
@@ -188,7 +184,7 @@ namespace QuanLyMovies.ViewModels
                 var array7 = xuatPhim(list, "Kinh dị");
                 DSPhimKinhDi = Enumerable.Range(0, array7.Count()).Select(i => array7[i]).ToList();
 
-                DSTheLoai = new ObservableCollection<THELOAI>(qlp.THELOAIs.ToList());
+                DSTheLoai = new ObservableCollection<THELOAI>(qlp.THELOAIs.Include("PHIMs").ToList());
                 DSPhim = new ObservableCollection<PHIM>(qlp.PHIMs.ToList());
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
             }
@@ -198,9 +194,9 @@ namespace QuanLyMovies.ViewModels
             List<PHIM> array = new List<PHIM>();
             Random rd = new Random();
             List<int> listRd = new List<int>();
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                int number = rd.Next(0, list.Count-1);
+                int number = rd.Next(0, list.Count - 1);
                 if (listRd.Contains(i))
                 {
                     continue;
@@ -215,7 +211,7 @@ namespace QuanLyMovies.ViewModels
             }
             return array;
         }
-        public List<PHIM> xuatPhim(List<PHIM> list,String str)
+        public List<PHIM> xuatPhim(List<PHIM> list, String str)
         {
             List<PHIM> array = new List<PHIM>();
             foreach (var i in list)
@@ -229,7 +225,7 @@ namespace QuanLyMovies.ViewModels
         }
         public void Refresh()
         {
-            using (var qlp = new QuanLyPhimEntities6())
+            using (var qlp = new QuanLyPhimEntities7())
             {
                 DSNguoiDung = new ObservableCollection<TAIKHOAN>(qlp.TAIKHOANs.ToList());
                 DSPhim = new ObservableCollection<PHIM>(qlp.PHIMs.ToList());
@@ -239,13 +235,12 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var ndCur = DSNguoiDung.Single(ng => ng.EMAIL == ItemNguoiDung.EMAIL);
                 convertNd(ndCur, ItemNguoiDung);
                 var ndCur1 = qlnd.TAIKHOANs.Single(ng => ng.EMAIL == ItemNguoiDung.EMAIL);
                 convertNd(ndCur1, ItemNguoiDung);
-                MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                 qlnd.SaveChanges();
                 MessageBox.Show("Thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -253,7 +248,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddNguoiDung(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 qlnd.TAIKHOANs.Add(ItemNguoiDung);
                 qlnd.SaveChanges();
@@ -264,7 +259,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteNguoiDung(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var nd = new TAIKHOAN();
 
@@ -293,7 +288,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var ndCur = DSPhim.Single(ng => ng.MAPHIM == ItemPhim.MAPHIM);
                 convertVd(ndCur, ItemPhim);
@@ -306,7 +301,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddVideo(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 qlnd.PHIMs.Add(ItemPhim);
                 qlnd.SaveChanges();
@@ -318,7 +313,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteVideo(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var nd = new PHIM();
 
@@ -346,7 +341,7 @@ namespace QuanLyMovies.ViewModels
         }
         void UpdateTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var ndCur = DSTheLoai.Single(ng => ng.MATHELOAI == ItemTheLoai.MATHELOAI);
                 convertTl(ndCur, ItemTheLoai);
@@ -360,7 +355,7 @@ namespace QuanLyMovies.ViewModels
         }
         void AddTheLoai(string name)
         {
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 qlnd.THELOAIs.Add(ItemTheLoai);
                 qlnd.SaveChanges();
@@ -370,7 +365,7 @@ namespace QuanLyMovies.ViewModels
         void DeleteTheLoai(string name)
         {
             var item = (string)name;
-            using (var qlnd = new QuanLyPhimEntities6())
+            using (var qlnd = new QuanLyPhimEntities7())
             {
                 var nd = new THELOAI();
 

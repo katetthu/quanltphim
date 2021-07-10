@@ -40,7 +40,7 @@
     <Property Name="MATHELOAI" Type="varchar" MaxLength="10" />
     <Property Name="TENTHELOAI" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Phim_TheLoai">
+  <Association Name="FK_PHIM_THELOAI">
     <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
     <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -57,7 +57,7 @@
     <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Phim_TheLoai" Association="Self.FK_Phim_TheLoai">
+    <AssociationSet Name="FK_PHIM_THELOAI" Association="Self.FK_PHIM_THELOAI">
       <End Role="THELOAI" EntitySet="THELOAI" />
       <End Role="PHIM" EntitySet="PHIM" />
     </AssociationSet>

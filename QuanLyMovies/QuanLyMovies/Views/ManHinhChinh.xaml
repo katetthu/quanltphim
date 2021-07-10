@@ -221,7 +221,7 @@
                 <RowDefinition Height="1300"/>
                 <RowDefinition Height="600"/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="0,0,-25,0" >
+            <StackPanel Margin="-5,75,-20.2,645" Grid.RowSpan="2" >
                 <StackPanel.Background>
                     <ImageBrush ImageSource="/background.jpg" Stretch="UniformToFill" Opacity="0.5"/>
                 </StackPanel.Background>

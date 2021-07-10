@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="072acfaaeb7c4b5fa503b248dffbcb23" Name="Diagram1">
+      <Diagram DiagramId="520ba12179ff45a1a98318a8cdd18918" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyPhimModel.LOAITHANHTOAN" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyPhimModel.PHIM" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyPhimModel.TAIKHOAN" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyPhimModel.THELOAI" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyPhimModel.FK_Phim_TheLoai" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyPhimModel.FK_PHIM_THELOAI" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

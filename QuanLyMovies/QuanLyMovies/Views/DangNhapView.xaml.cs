@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyMovies.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,16 +28,40 @@ namespace QuanLyMovies.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ((txtemail.Text == "admin@gmail.com" || Int32.Parse(txtemail.Text) == 12345679) && txtpass.Password == "admin")
+            if ((txtemail.Text.Equals("admin@gmail.com") && txtpass.Password.Equals("admin")))
             {
                 var wdn1 = new AdminView();
                 wdn1.Show();
             }
-            //else if (.....)
-            //{
-            //    var wdn2 = new TrangChuView();
-            //    wdn2.Show();
-            //}
+            else
+            {
+                using (var qlp = new QuanLyPhimEntities7())
+                {
+                    var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
+                    bool check = false;
+                    var ten = "";
+                    foreach (var i in list)
+                    {
+                        if (i.EMAIL.Equals(txtemail.Text) && i.PASS.Equals(txtpass.Password))
+                        {
+                            check = true;
+                            ten = i.TENNGUOIDUNG;
+                            break;
+                        }
+
+                    }
+                    if (check)
+                    {
+                        var tt = new TrangChuView(txtemail.Text,ten);
+                        tt.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai mật khẩu hoặc tài khoản", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

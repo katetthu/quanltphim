@@ -28,8 +28,10 @@ namespace QuanLyMovies.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             var wdn = new DangNhapView();
-            wdn.Show();
+            wdn.ShowDialog();
+            this.Show();
         }
 
         private void btDangKy(object sender, RoutedEventArgs e)

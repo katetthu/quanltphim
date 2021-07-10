@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuanLyMovies.Views"
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
+        xmlns:local="clr-namespace:QuanLyMovies.Views" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+
         
         mc:Ignorable="d" Height="700" Width="1459" 
         WindowStartupLocation="CenterScreen" Title="Admin Dashboard" WindowState="Maximized"
@@ -173,21 +174,21 @@
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Tên Phim</Label>
                         <TextBox   Name="txtTenPhim" Text="{Binding ItemPhim.TENPHIM}" 
                                  Margin="10" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" FontSize="25"/>
-                        
+
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">Video:</Label>
                         <StackPanel Grid.Column="4" Grid.Row="2" Orientation="Horizontal">
-                        <TextBox  Name="dataVideo"  Text="{Binding ItemPhim.VIDEO}" Width="351"
+                            <TextBox  Name="dataVideo"  Text="{Binding ItemPhim.VIDEO}" Width="351"
                                  Margin="10"  VerticalContentAlignment="Center" FontSize="25"/>
                             <Button Margin="10" Width="80" Click="btBrowseVideo">Browse</Button>
                         </StackPanel>
-                        
+
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">Hình Ảnh:</Label>
                         <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0">
                             <TextBox Name="dataImage"  Text="{Binding ItemPhim.HINHANH}" Width="351"
                                  Margin="10" VerticalContentAlignment="Center" FontSize="25"/>
                             <Button Margin="10" Width="80" Click="btBrowse">Browse</Button>
                         </StackPanel>
-                        
+
                         <Label VerticalAlignment="Center" Height="37" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">Thông tin:</Label>
                         <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" >
                             <TextBox  Name="dataInfo"  Text="{Binding ItemPhim.INFO}" Width="351"
@@ -236,7 +237,58 @@
                     </StackPanel>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Báo cáo thống kê" />
+            <TabItem Header="Báo cáo thống kê" >
+                <TabControl>
+                    <TabItem Header="Thống kê lượt xem">
+                        <Grid Name="CakeLive" Loaded="CakeLive_Loaded" Width="552" Height="388" 
+              Canvas.Left="940" Canvas.Top="48">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="121*"/>
+                                <ColumnDefinition Width="90*"/>
+                            </Grid.ColumnDefinitions>
+                            <lvc:PieChart Name="Chart" LegendLocation="Bottom" InnerRadius="10"  DataClick="Chart_DataClick"
+                      Series="{Binding SeriesCollection}" Margin="40,-11,0,-21" Grid.ColumnSpan="2" FontSize="18">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="10"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="10"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+
+                            </lvc:PieChart>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Thống kê Doan thu">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <ComboBox Name="NameAddress"  Width="121" Height="35" Canvas.Left="109" Canvas.Top="149" 
+                                    SelectionChanged="NameAddress_SelectionChanged" RenderTransformOrigin="1.134,0.49" 
+                                      HorizontalAlignment="Left" BorderBrush="#FF7FFFF3" OpacityMask="#FF7FFFF3" 
+                                      Background="#FF7FFFF3" FontSize="20" Margin="0,0,0,0.2" Text="2019">
+                            </ComboBox>
+                            <lvc:CartesianChart Grid.Row="2" Series="{Binding SeriesCollection1}" 
+                            DataClick="Chart_OnDataClick">
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis LabelsRotation="20" Labels="{Binding Labels}" Position="LeftBottom" >
+                                        <lvc:Axis.Separator >
+                                            <lvc:Separator Step="1"></lvc:Separator>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Sold Items" LabelFormatter="{Binding Formatter}" Position="RightTop"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyMovies.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,70 @@ namespace QuanLyMovies.Views
     /// </summary>
     public partial class ChinhSuaThongTin : Window
     {
-        public ChinhSuaThongTin()
+        String email = "";
+        String pass = "";
+        public ChinhSuaThongTin(String em)
         {
             InitializeComponent();
+            email = em;
+            using (var qlp = new QuanLyPhimEntities7())
+            {
+                var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
+                var tk = new TAIKHOAN();
+                foreach (var i in list)
+                {
+                    if (em.Equals(i.EMAIL))
+                    {
+                        tk = i;
+                    }
+                }
+                pass = tk.PASS;
+                txtCard.Text = tk.SOTAIKHOAN.ToString();
+                txtName.Text = tk.TENNGUOIDUNG;
+                txtPhone.Text = tk.PHONENUMBER.ToString();
+                txtDate.Text = tk.NGAYHETHAN.ToString();
+                txtGoi.Text = tk.TENLOAITHANHTOAN;
+            }
         }
 
         private void btnBackTab_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            var wdn = new TrangChuView();
-            wdn.Show();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            using (var qlp = new QuanLyPhimEntities7())
+            {
+                if (txtConPass.Password.Equals(pass))
+                {
+                    using (var qlps = new QuanLyPhimEntities7())
+                    {
+                        var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
+                        var ndCur1 = qlps.TAIKHOANs.Single(ng => ng.EMAIL == email);
+                        ndCur1.TENNGUOIDUNG = txtName.Text.Trim();
+
+                        qlps.SaveChanges();
+                        MessageBox.Show("Update thành công", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        Close();
+
+                        var mh = new TrangChuView(email,txtName.Text.Trim());
+                        mh.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sai mật khẩu", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            var mh = new ManHinhChinh();
+            mh.ShowDialog();
         }
     }
 }

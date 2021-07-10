@@ -1,4 +1,5 @@
-﻿using QuanLyMovies.ViewModels;
+﻿using QuanLyMovies.Models;
+using QuanLyMovies.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,24 +23,19 @@ namespace QuanLyMovies.Views
     public partial class TrangChuView : Window
     {
         UtilViewModel vm;
-        public TrangChuView()
+        String email = "";
+        ObservableCollection<PHIM> _listPhim = new ObservableCollection<PHIM>();
+
+        public TrangChuView(String tk, String ten)
         {
             InitializeComponent();
-            // Manually alter window height and width
             this.SizeToContent = SizeToContent.Manual;
 
-            //// Automatically resize width relative to content
-            //this.SizeToContent = SizeToContent.Width;
 
-            //// Automatically resize height relative to content
-            //this.SizeToContent = SizeToContent.Height;
-
-            //// Automatically resize height and width relative to content
-            //this.SizeToContent = SizeToContent.WidthAndHeight;.
-            // lbds.DataContext = ocMH;
             vm = new UtilViewModel();
             DataContext = vm;
-
+            TenTxt.Text = ten;
+            email = tk;
 
         }
 
@@ -66,8 +62,32 @@ namespace QuanLyMovies.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var wdn = new ChinhSuaThongTin();
+            var wdn = new ChinhSuaThongTin(email);
             wdn.Show();
+        }
+        private void AddMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var index1 = ListFavorite.SelectedIndex;
+
+            if (index1 != -1)
+            {
+                var item2 = ListFavorite.SelectedItem;
+                _listPhim.Add(item2 as PHIM);
+            }
+        }
+        private void RemoveMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var index2 = ListItMe.SelectedIndex;
+
+            if (index2 != -1)
+            {
+                _listPhim.RemoveAt(index2);
+            }
+        }
+
+        private void TabItem_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListItMe.ItemsSource = _listPhim;
         }
     }
 }
