@@ -31,6 +31,7 @@ namespace QuanLyMovies.Views
             InitializeComponent();
             this.SizeToContent = SizeToContent.Manual;
 
+            
 
             vm = new UtilViewModel();
             DataContext = vm;
@@ -88,6 +89,27 @@ namespace QuanLyMovies.Views
         private void TabItem_Loaded(object sender, RoutedEventArgs e)
         {
             ListItMe.ItemsSource = _listPhim;
+        }
+
+        private void btSearch(object sender, RoutedEventArgs e)
+        {
+            var txt = txtSearch.Text;
+            ObservableCollection<PHIM> _listPhim1 = new ObservableCollection<PHIM>();
+            foreach (var i in _listPhim)
+            {
+                if (i.TENPHIM.Trim().ToUpper().Contains(txt.ToUpper()))
+                {
+                    _listPhim1.Add(i);
+                }
+            }
+            ListItMe.ItemsSource = _listPhim1;
+        }
+
+        private void btThongTinPhim(object sender, RoutedEventArgs e)
+        {
+            var wdn = new ThongTinPhim();
+            wdn.Show();
+
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
          xmlns:m ="clr-namespace:QuanLyMovies.Models"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None"
         Title="ChinhSuaThongTin" Height="1460" Width="1920" WindowState="Maximized">
     <Window.DataContext>
         <m:TAIKHOAN/>
@@ -74,6 +74,11 @@
         </ControlTemplate>
     </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="170"/>
+        </Grid.RowDefinitions>
+        
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label FontSize="40" HorizontalContentAlignment="Left" Margin="0,0,0,20">Tài khoản</Label>
             <Rectangle Width="1000" Height="2" Fill="Gray"/>
@@ -145,5 +150,35 @@
 
 
         </StackPanel>
+        <Border Grid.Row="2" Background="#FFF0F0F0" BorderBrush="Gray" >
+            <Grid >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="134*" />
+                        <ColumnDefinition Width="222*" />
+                        <ColumnDefinition Width="213*"/>
+                        <ColumnDefinition Width="189*"/>
+                        <ColumnDefinition Width="190*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="1" FontSize="20" VerticalAlignment="Center" Margin="0,2,0,12" Height="37" Foreground="Gray">Questions? Contact us.</Label>
+                    <Label Grid.Column="1" Grid.Row="1" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">FAQ</Label>
+                    <Label Grid.Column="1" Grid.Row="2" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">Cookie Preferences</Label>
+                    <Label Grid.Column="2" Grid.Row="1" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">Help Center</Label>
+                    <Label Grid.Column="2" Grid.Row="2" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">Corporate Information</Label>
+                    <Label Grid.Column="3" Grid.Row="1" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">Terms of Use</Label>
+                    <Label Grid.Column="4" Grid.Row="1" FontSize="18" VerticalAlignment="Center" Height="34" Margin="0,8" Foreground="Gray">Privacy</Label>
+                    <ComboBox Grid.Row="3" Grid.Column="1" FontSize="20" Foreground="Gray" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="2"
+                                  SelectedIndex="0" Margin="0,0,254,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                        <ComboBoxItem Content="English"/>
+                    </ComboBox>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

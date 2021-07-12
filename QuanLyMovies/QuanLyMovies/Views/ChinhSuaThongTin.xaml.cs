@@ -26,7 +26,7 @@ namespace QuanLyMovies.Views
         {
             InitializeComponent();
             email = em;
-            using (var qlp = new QuanLyPhimEntities7())
+            using (var qlp = new QuanLyPhimEntities8())
             {
                 var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
                 var tk = new TAIKHOAN();
@@ -53,29 +53,27 @@ namespace QuanLyMovies.Views
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            using (var qlp = new QuanLyPhimEntities7())
+
+            if (txtConPass.Password.Equals(pass))
             {
-                if (txtConPass.Password.Equals(pass))
+                using (var qlps = new QuanLyPhimEntities8())
                 {
-                    using (var qlps = new QuanLyPhimEntities7())
-                    {
-                        var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
-                        var ndCur1 = qlps.TAIKHOANs.Single(ng => ng.EMAIL == email);
-                        ndCur1.TENNGUOIDUNG = txtName.Text.Trim();
+                    var list = new List<TAIKHOAN>(qlps.TAIKHOANs.ToList());
+                    var ndCur1 = qlps.TAIKHOANs.Single(ng => ng.EMAIL == email);
+                    ndCur1.TENNGUOIDUNG = txtName.Text.Trim();
 
-                        qlps.SaveChanges();
-                        MessageBox.Show("Update thành công", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information);
+                    qlps.SaveChanges();
+                    MessageBox.Show("Update thành công", "SUCCESS", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        Close();
+                    Close();
 
-                        var mh = new TrangChuView(email,txtName.Text.Trim());
-                        mh.ShowDialog();
-                    }
+                    var mh = new TrangChuView(email, txtName.Text.Trim());
+                    mh.ShowDialog();
                 }
-                else
-                {
-                    MessageBox.Show("Sai mật khẩu", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

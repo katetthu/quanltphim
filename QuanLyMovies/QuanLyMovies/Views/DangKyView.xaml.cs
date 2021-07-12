@@ -48,45 +48,70 @@ namespace QuanLyMovies.Views
 
         private void btDangNhap(object sender, RoutedEventArgs e)
         {
-            if (!txtPass.Password.Equals(txtConPass.Password))
+            try
             {
-                MessageBox.Show("sai");
-            }
-            else
-            {
-
-
-                using (var qlnd = new QuanLyPhimEntities7())
+                if (!txtPass.Password.Equals(txtConPass.Password))
                 {
-                    String[] list = txtDate.Text.Trim().Trim().Split(' ');
-                    DateTime dateTime = DateTime.ParseExact(list[0], "MM/dd/yyyy", null);
-
-                    var loai = "Basic";
-                    try
-                    {
-                        loai = cbbTenLoaiThanhToan.SelectedItem.ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.ToString();
-                    }
-                    var item = new TAIKHOAN();
-                    item.EMAIL = txtEmailHien.Text;
-                    item.PASS = txtConPass.Password;
-                    item.NGAYHETHAN = dateTime;
-                    item.PHONENUMBER = Int32.Parse(txtPhone.Text);
-                    item.SOTAIKHOAN = Convert.ToDouble(txtCard.Text);
-                    item.TENNGUOIDUNG = txtName.Text;
-                    item.TENLOAITHANHTOAN = loai;
-
-                    qlnd.TAIKHOANs.Add(item);
-                    qlnd.SaveChanges();
+                    MessageBox.Show("Mật khẩu không trùng!!!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                else
+                {
+                    using (var qlnd = new QuanLyPhimEntities8())
+                    {
+                        String[] list = txtDate.Text.Trim().Trim().Split(' ');
+                        DateTime dateTime = DateTime.ParseExact(list[0], "MM/dd/yyyy", null);
 
-                var wdn = new DangNhapView();
-                wdn.Show();
+                        var loai = "Basic";
+                        try
+                        {
+                            loai = cbbTenLoaiThanhToan.SelectedItem as String;
+                        }
+                        catch (Exception ex)
+                        {
+                            ex.ToString();
+                        }
+                        var item = new TAIKHOAN();
+                        item.EMAIL = txtEmailHien.Text;
+                        item.PASS = txtConPass.Password;
+                        item.NGAYHETHAN = dateTime;
+                        item.PHONENUMBER = Int32.Parse(txtPhone.Text);
+                        item.SOTAIKHOAN = Convert.ToDouble(txtCard.Text);
+                        item.TENNGUOIDUNG = txtName.Text;
+                        item.TENLOAITHANHTOAN = loai;
+
+                        qlnd.TAIKHOANs.Add(item);
+                        qlnd.SaveChanges();
+                       
+                        var wdn = new DangNhapView();
+                        wdn.ShowDialog();
+
+                    }
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại", "Thất bại", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+        }
+
+        private void ButtonClose(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btTrangDangNhap(object sender, RoutedEventArgs e)
+        {
+
+            Close();
+            var mh = new DangNhapView();
+            mh.ShowDialog();
+        }
+
+        private void btHome(object sender, RoutedEventArgs e)
+        {
+            Close();
+            var mh = new ManHinhChinh();
+            mh.ShowDialog();
         }
     }
 }

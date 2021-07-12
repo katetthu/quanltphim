@@ -8,12 +8,30 @@
         xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
         mc:Ignorable="d"
         Title="DangKyView" Height="1460" Width="1920" WindowState="Maximized"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
         SizeToContent="WidthAndHeight" Foreground="White">
     <Window.DataContext>
         <m:TAIKHOAN/>
     </Window.DataContext>
     <Window.Resources>
+        <Style TargetType="Button" x:Key="Home">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Height="100" Width="262" HorizontalAlignment="Left" Margin="42,0,0,-2">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Icon/logobgwhite.png"/>
+                            </Border.Background>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"  
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style TargetType="Button" x:Key="Next">
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -50,8 +68,8 @@
         <ControlTemplate x:Key="errorTemplate">
             <DockPanel LastChildFill="True">
                 <TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="30"
-                          FontWeight="Bold">!</TextBlock>
-                <Border BorderBrush="Red" BorderThickness="3" >
+                          FontWeight="Bold" Margin="5,0,0,0">!</TextBlock>
+                <Border BorderBrush="Red" BorderThickness="1" >
                     <Grid>
                         <AdornedElementPlaceholder/>
                         <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"
@@ -67,8 +85,8 @@
                 <RowDefinition Height="1000" />
                 <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
-
-            <TabControl Name="tcSample" Margin="0,0,-17,0">
+           
+            <TabControl Name="tcSample" Margin="0,0,-17,0" Grid.Row="0">
                 <TabItem Header="step1">
                     <Grid Margin="0,50,0,0">
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -104,13 +122,13 @@
                 <TabItem Header="step2">
                     <Grid Margin="0,-24,0,0">
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Image Source="/check.PNG" Height="112"/>
+                            <Image Source="/Icon/check.PNG" Height="112"/>
                             <Label FontSize="30" HorizontalContentAlignment="Center">STEP 2 OF 3</Label>
                             <Label FontSize="50" FontWeight="Bold"  Margin="0,10,0,30"
                                    HorizontalContentAlignment="Center">Choose your plan.</Label>
                             <Label FontSize="30">
                                 <StackPanel Orientation="Horizontal" >
-                                    <Image Source="/checknotround.png"/>
+                                    <Image Source="/Icon/checknotround.png"/>
                                     <TextBlock FontSize="30">
                                       No commitments, cancel <LineBreak/>
                                         anytime.
@@ -119,7 +137,7 @@
                             </Label>
                             <Label FontSize="30">
                                 <StackPanel Orientation="Horizontal" >
-                                    <Image Source="/checknotround.png"/>
+                                    <Image Source="/Icon/checknotround.png"/>
                                     <TextBlock FontSize="30">
                                       Everything on Netflix for one<LineBreak/>
                                       low price.
@@ -128,7 +146,7 @@
                             </Label>
                             <Label FontSize="30">
                                 <StackPanel Orientation="Horizontal" >
-                                    <Image Source="/checknotround.png"/>
+                                    <Image Source="/Icon/checknotround.png"/>
                                     <TextBlock FontSize="30">
                                       No ads and no extra fees. Ever.
                                     </TextBlock>
@@ -157,7 +175,7 @@
                                 <StackPanel VerticalAlignment="Center">
                                     <Label FontSize="30" Width="576" >
                                         <StackPanel Orientation="Horizontal" >
-                                            <Image Source="/checknotround.png"/>
+                                            <Image Source="/Icon/checknotround.png"/>
                                             <TextBlock FontSize="30">
                                       Watch all you want. Ad-free.
                                             </TextBlock>
@@ -165,7 +183,7 @@
                                     </Label>
                                     <Label FontSize="30" Width="576">
                                         <StackPanel Orientation="Horizontal" >
-                                            <Image Source="/checknotround.png"/>
+                                            <Image Source="/Icon/checknotround.png"/>
                                             <TextBlock FontSize="30">
                                       Recommendations just for you.
                                             </TextBlock>
@@ -173,14 +191,14 @@
                                     </Label>
                                     <Label FontSize="30" Width="582">
                                         <StackPanel Orientation="Horizontal" >
-                                            <Image Source="/checknotround.png"/>
+                                            <Image Source="/Icon/checknotround.png"/>
                                             <TextBlock FontSize="30">
                                       Change or cancel your plan anytime.
                                             </TextBlock>
                                         </StackPanel>
                                     </Label>
                                 </StackPanel>
-                                <Image Source="/cost.png" Width="993"/>
+                                <Image Source="/Icon/cost.png" Width="993"/>
                             </StackPanel>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -300,15 +318,18 @@
                 </TabItem>
             </TabControl>
 
-            <Border Height="100" VerticalAlignment="Top" Background="White" BorderThickness="1" BorderBrush="Gray" Margin="0,0,-30,0" >
+            <Border Height="100" VerticalAlignment="Top" Grid.Row="0"
+                    Background="White" BorderThickness="1" BorderBrush="Gray" Margin="0,0,-30,0" >
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="/logobgwhite.png" Height="100" Width="262" HorizontalAlignment="Left" Margin="42,0,0,-2" />
+                    <Button Style="{StaticResource Home}" Width="350" HorizontalAlignment="Left" Margin="5" Click="btHome">
+                    </Button>
                     <Button Grid.Column="1" HorizontalAlignment="Right" Width="200" Margin="0,10,54,10" 
-                            FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="btDangNhap">Sign In
+                            FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="btTrangDangNhap">Sign In
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Cursor" Value="Hand"/>
@@ -330,7 +351,7 @@
                 </Grid>
             </Border>
 
-            <Border Grid.Row="1" Background="#FFF0F0F0" BorderBrush="Gray">
+            <Border Grid.Row="2" Background="#FFF0F0F0" BorderBrush="Gray" >
                 <Grid >
                     <Grid>
                         <Grid.ColumnDefinitions>

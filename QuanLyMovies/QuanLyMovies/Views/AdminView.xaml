@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:m ="clr-namespace:QuanLyMovies.Models"
         xmlns:t ="clr-namespace:QuanLyMovies.ViewModels"
-        xmlns:local="clr-namespace:QuanLyMovies.Views" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:QuanLyMovies.Views" 
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 
         
         mc:Ignorable="d" Height="700" Width="1459" 
@@ -17,7 +18,7 @@
     <Grid>
         <Border Height="89" VerticalAlignment="Top" Background="Black" Margin="-17,0" >
             <Grid>
-                <Image Source="/logo.png" Width="262" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                <Image Source="/Icon/logo.png" Width="262" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                 <Button Grid.Column="1" HorizontalAlignment="Right" Width="149" Margin="0,10,35,25" Foreground="White"
                             FontSize="25" Background="{x:Null}" BorderBrush="gray" Click="btTrangChu">Home Page
                     <Button.Style>
@@ -247,7 +248,7 @@
                                 <ColumnDefinition Width="90*"/>
                             </Grid.ColumnDefinitions>
                             <lvc:PieChart Name="Chart" LegendLocation="Bottom" InnerRadius="10"  DataClick="Chart_DataClick"
-                      Series="{Binding SeriesCollection}" Margin="40,-11,0,-21" Grid.ColumnSpan="2" FontSize="18">
+                      Series="{Binding SeriesCollection}" Margin="-82,-46,-55,0" Grid.ColumnSpan="2" FontSize="18">
                                 <lvc:PieChart.ChartLegend>
                                     <lvc:DefaultLegend BulletSize="10"></lvc:DefaultLegend>
                                 </lvc:PieChart.ChartLegend>
@@ -258,7 +259,7 @@
                             </lvc:PieChart>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Thống kê Doan thu">
+                    <TabItem Header="Thống kê Doanh thu">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>

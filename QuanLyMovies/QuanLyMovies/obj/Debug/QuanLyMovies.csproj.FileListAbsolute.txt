@@ -161,3 +161,47 @@ C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Qu
 C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.exe
 C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.pdb
 C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.pdb
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\EntityFramework.xml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.exe.config
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.exe
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\QuanLyMovies.pdb
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\EntityFramework.dll
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.dll
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\Newtonsoft.Json.dll
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.pdb
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.xml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\bin\Debug\Newtonsoft.Json.xml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\AdminView.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ChinhSuaThongTin.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangKyView.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangNhapView.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ManHinhChinh.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\TrangChuView.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\App.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies_Content.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies_MarkupCompile.cache
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies_MarkupCompile.lref
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\AdminView.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ChinhSuaThongTin.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangKyView.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\DangNhapView.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ManHinhChinh.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\QuenPassView.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\TrangChuView.baml
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.g.resources
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.Properties.Resources.resources
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.GenerateResource.cache
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.CoreCompileInputs.cache
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.CopyComplete
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.exe
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.pdb
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\QuanLyMovies.csproj.AssemblyReference.cache
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ThongTinPhim.g.cs
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\Views\ThongTinPhim.baml

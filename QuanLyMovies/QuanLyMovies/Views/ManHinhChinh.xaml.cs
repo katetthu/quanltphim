@@ -22,23 +22,24 @@ namespace QuanLyMovies.Views
         public ManHinhChinh()
         {
             InitializeComponent();
-     
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             var wdn = new DangNhapView();
             wdn.ShowDialog();
             this.Show();
+            this.Close();
         }
 
         private void btDangKy(object sender, RoutedEventArgs e)
         {
+            
             var txt = txtEmail.Text;
             var wdn = new DangKyView(txt);
-            wdn.Show();
+            wdn.ShowDialog();
+            this.Show();
+            this.Close();
         }
     }
 }

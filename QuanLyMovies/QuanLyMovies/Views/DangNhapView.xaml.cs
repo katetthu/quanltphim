@@ -35,7 +35,7 @@ namespace QuanLyMovies.Views
             }
             else
             {
-                using (var qlp = new QuanLyPhimEntities7())
+                using (var qlp = new QuanLyPhimEntities8())
                 {
                     var list = new List<TAIKHOAN>(qlp.TAIKHOANs.ToList());
                     bool check = false;
@@ -72,8 +72,15 @@ namespace QuanLyMovies.Views
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var wdn = new DangKyView("");
+            
+            var wdn = new ManHinhChinh();
             wdn.Show();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

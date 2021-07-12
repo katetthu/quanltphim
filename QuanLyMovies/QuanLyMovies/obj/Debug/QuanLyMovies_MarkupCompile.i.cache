@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\obj\Debug\
 QuanLyMovies
 none
 false
 DEBUG;TRACE
-C:\Users\VU MINH CHIEN\Desktop\quanltphim\QuanLyMovies\QuanLyMovies\App.xaml
-7125129073
-21179745791
-35-613220845
-21-1410279686
-Views\AdminView.xaml;Views\ChinhSuaThongTin.xaml;Views\DangKyView.xaml;Views\DangNhapView.xaml;Views\ManHinhChinh.xaml;Views\QuenPassView.xaml;Views\TrangChuView.xaml;
+C:\Users\GIATHU\Desktop\NEW\quanltphim\QuanLyMovies\QuanLyMovies\App.xaml
+81973643415
+59-699680051
+36-1133974935
+211193776065
+Views\AdminView.xaml;Views\ChinhSuaThongTin.xaml;Views\DangKyView.xaml;Views\DangNhapView.xaml;Views\ManHinhChinh.xaml;Views\QuenPassView.xaml;Views\ThongTinPhim.xaml;Views\TrangChuView.xaml;
 
-False
+True
 

@@ -128,7 +128,7 @@ namespace QuanLyMovies.Views
         {
             Random rd = new Random();
 
-            using (var qlnd = new QuanLyPhimEntities7())
+            using (var qlnd = new QuanLyPhimEntities8())
             {
                 ObservableCollection<THELOAI> spends = new ObservableCollection<THELOAI>(qlnd.THELOAIs.ToList());
                 SeriesCollection = new SeriesCollection() { };

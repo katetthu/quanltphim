@@ -23,19 +23,20 @@ namespace QuanLyMovies.Views
         public QuenPassView()
         {
             InitializeComponent();
+            this.SizeToContent = SizeToContent.Manual;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!txtPass.Password.Equals(txtConPass.Password))
             {
-                MessageBox.Show("ngu");
+                MessageBox.Show("Password không trùng nhau!!","ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
                 bool check = false;
                 var item = txtEmail.Text;
-                using (var qlnd = new QuanLyPhimEntities7())
+                using (var qlnd = new QuanLyPhimEntities8())
                 {
 
                     foreach (var i in qlnd.TAIKHOANs)
@@ -50,14 +51,20 @@ namespace QuanLyMovies.Views
                 }
                 if (check)
                 {
+                    this.Close();
                     var wdn = new DangNhapView();
-                    wdn.Show();
+                    wdn.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("doot");
+                    MessageBox.Show("Email không tồn tại hoặc sai Password !!!","ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

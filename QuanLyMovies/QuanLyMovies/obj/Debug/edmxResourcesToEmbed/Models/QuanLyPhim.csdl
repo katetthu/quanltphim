@@ -54,7 +54,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QuanLyPhimEntities7" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyPhimEntities8" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
     <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
     <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />

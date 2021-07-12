@@ -87,33 +87,33 @@
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\LOAITHANHTOAN.cs">
-      <DependentUpon>QuanlyPhim.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pass.cs" />
     <Compile Include="Models\PHIM.cs">
-      <DependentUpon>QuanlyPhim.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Phone.cs" />
-    <Compile Include="Models\QuanlyPhim.Context.cs">
+    <Compile Include="Models\QuanLyPhim.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanlyPhim.Context.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QuanlyPhim.cs">
+    <Compile Include="Models\QuanLyPhim.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanlyPhim.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QuanlyPhim.Designer.cs">
+    <Compile Include="Models\QuanLyPhim.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanlyPhim.edmx</DependentUpon>
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TAIKHOAN.cs">
-      <DependentUpon>QuanlyPhim.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THELOAI.cs">
-      <DependentUpon>QuanlyPhim.tt</DependentUpon>
+      <DependentUpon>QuanLyPhim.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\UtilViewModel.cs" />
     <Compile Include="Views\AdminView.xaml.cs">
@@ -133,6 +133,9 @@
     </Compile>
     <Compile Include="Views\QuenPassView.xaml.cs">
       <DependentUpon>QuenPassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThongTinPhim.xaml.cs">
+      <DependentUpon>ThongTinPhim.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrangChuView.xaml.cs">
       <DependentUpon>TrangChuView.xaml</DependentUpon>
@@ -165,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ThongTinPhim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TrangChuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,12 +195,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\QuanlyPhim.edmx">
+    <EntityDeploy Include="Models\QuanLyPhim.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanlyPhim.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyPhim.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\QuanlyPhim.edmx.diagram">
-      <DependentUpon>QuanlyPhim.edmx</DependentUpon>
+    <None Include="Models\QuanLyPhim.edmx.diagram">
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -205,7 +212,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="loupe.png" />
+    <Resource Include="Icon\loupe.png" />
     <Resource Include="Views\back.png" />
     <Resource Include="InfoMovies\1.txt" />
     <Resource Include="InfoMovies\10.txt" />
@@ -263,35 +270,149 @@
     <Resource Include="InfoMovies\7.txt" />
     <Resource Include="InfoMovies\8.txt" />
     <Resource Include="InfoMovies\9.txt" />
-    <Resource Include="Image1.png" />
-    <Resource Include="Image3.png" />
-    <Resource Include="Image2.png" />
-    <Resource Include="logo.png" />
-    <Resource Include="background.jpg" />
-    <Resource Include="check.PNG" />
-    <Resource Include="checknotround.PNG" />
-    <Resource Include="logobgwhite.PNG" />
-    <Resource Include="cost.PNG" />
-    <Resource Include="greetings.png" />
-    <Resource Include="add.png" />
-    <Resource Include="remove.png" />
-    <Content Include="Models\QuanlyPhim.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanlyPhim.edmx</DependentUpon>
-      <LastGenOutput>QuanlyPhim.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\QuanlyPhim.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanlyPhim.edmx</DependentUpon>
-      <LastGenOutput>QuanlyPhim.cs</LastGenOutput>
-    </Content>
+    <Resource Include="Icon\Image1.png" />
+    <Resource Include="Icon\Image3.png" />
+    <Resource Include="Icon\Image2.png" />
+    <Resource Include="Icon\logo.png" />
+    <Resource Include="Icon\background.jpg" />
+    <Resource Include="Icon\check.PNG" />
+    <Resource Include="Icon\checknotround.PNG" />
+    <Resource Include="Icon\logobgwhite.PNG" />
+    <Resource Include="Icon\cost.PNG" />
+    <Resource Include="Icon\greetings.png" />
+    <Resource Include="Icon\add.png" />
+    <Resource Include="Icon\remove.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ImageMovies\" />
-    <Folder Include="VideoMovies\" />
+    <Resource Include="Icon\play.png" />
+    <Content Include="VideoMovies\1.mp4" />
+    <Content Include="VideoMovies\10.mp4" />
+    <Content Include="VideoMovies\11.mp4" />
+    <Content Include="VideoMovies\12.mp4" />
+    <Content Include="VideoMovies\123123.mp4" />
+    <Content Include="VideoMovies\13.mp4" />
+    <Content Include="VideoMovies\14.mp4" />
+    <Content Include="VideoMovies\15.mp4" />
+    <Content Include="VideoMovies\16.mp4" />
+    <Content Include="VideoMovies\17.mp4" />
+    <Content Include="VideoMovies\18.mp4" />
+    <Content Include="VideoMovies\19.mp4" />
+    <Content Include="VideoMovies\2.mp4" />
+    <Content Include="VideoMovies\20.mp4" />
+    <Content Include="VideoMovies\21.mp4" />
+    <Content Include="VideoMovies\22.mp4" />
+    <Content Include="VideoMovies\23.mp4" />
+    <Content Include="VideoMovies\24.mp4" />
+    <Content Include="VideoMovies\25.mp4" />
+    <Content Include="VideoMovies\26.mp4" />
+    <Content Include="VideoMovies\27.mp4" />
+    <Content Include="VideoMovies\28.mp4" />
+    <Content Include="VideoMovies\29.mp4" />
+    <Content Include="VideoMovies\3.mp4" />
+    <Content Include="VideoMovies\30.mp4" />
+    <Content Include="VideoMovies\31.mp4" />
+    <Content Include="VideoMovies\32.mp4" />
+    <Content Include="VideoMovies\33.mp4" />
+    <Content Include="VideoMovies\34.mp4" />
+    <Content Include="VideoMovies\35.mp4" />
+    <Content Include="VideoMovies\36.mp4" />
+    <Content Include="VideoMovies\37.mp4" />
+    <Content Include="VideoMovies\38.mp4" />
+    <Content Include="VideoMovies\39.mp4" />
+    <Content Include="VideoMovies\4.mp4" />
+    <Content Include="VideoMovies\40.mp4" />
+    <Content Include="VideoMovies\41.mp4" />
+    <Content Include="VideoMovies\42.mp4" />
+    <Content Include="VideoMovies\43.mp4" />
+    <Content Include="VideoMovies\44.mp4" />
+    <Content Include="VideoMovies\45.mp4" />
+    <Content Include="VideoMovies\46.mp4" />
+    <Content Include="VideoMovies\47.mp4" />
+    <Content Include="VideoMovies\48.mp4" />
+    <Content Include="VideoMovies\49.mp4" />
+    <Content Include="VideoMovies\5.mp4" />
+    <Content Include="VideoMovies\50.mp4" />
+    <Content Include="VideoMovies\51.mp4" />
+    <Content Include="VideoMovies\52.mp4" />
+    <Content Include="VideoMovies\53.mp4" />
+    <Content Include="VideoMovies\54.mp4" />
+    <Content Include="VideoMovies\55.mp4" />
+    <Content Include="VideoMovies\56.mp4" />
+    <Content Include="VideoMovies\6.mp4" />
+    <Content Include="VideoMovies\7.mp4" />
+    <Content Include="VideoMovies\8.mp4" />
+    <Content Include="VideoMovies\9.mp4" />
+    <Resource Include="Icon\close.png" />
+    <Resource Include="Icon\plus.png" />
+    <Resource Include="ImageMovies\1.jpg" />
+    <Resource Include="ImageMovies\10.jpg" />
+    <Resource Include="ImageMovies\11.jpg" />
+    <Resource Include="ImageMovies\12.jpg" />
+    <Resource Include="ImageMovies\13.jpg" />
+    <Resource Include="ImageMovies\14.jpg" />
+    <Resource Include="ImageMovies\15.jpg" />
+    <Resource Include="ImageMovies\16.jpg" />
+    <Resource Include="ImageMovies\17.jpg" />
+    <Resource Include="ImageMovies\18.jpg" />
+    <Resource Include="ImageMovies\19.jpg" />
+    <Resource Include="ImageMovies\2.jpg" />
+    <Resource Include="ImageMovies\20.jpg" />
+    <Resource Include="ImageMovies\21.jpg" />
+    <Resource Include="ImageMovies\22.jpg" />
+    <Resource Include="ImageMovies\23.jpg" />
+    <Resource Include="ImageMovies\24.jpg" />
+    <Resource Include="ImageMovies\25.jpg" />
+    <Resource Include="ImageMovies\26.jpg" />
+    <Resource Include="ImageMovies\27.jpg" />
+    <Resource Include="ImageMovies\28.jpg" />
+    <Resource Include="ImageMovies\29.jpg" />
+    <Resource Include="ImageMovies\3.jpg" />
+    <Resource Include="ImageMovies\30.jpg" />
+    <Resource Include="ImageMovies\31.jpg" />
+    <Resource Include="ImageMovies\32.jpg" />
+    <Resource Include="ImageMovies\33.jpg" />
+    <Resource Include="ImageMovies\34.jpg" />
+    <Resource Include="ImageMovies\35.jpg" />
+    <Resource Include="ImageMovies\36.jpg" />
+    <Resource Include="ImageMovies\37.jpg" />
+    <Resource Include="ImageMovies\38.jpg" />
+    <Resource Include="ImageMovies\39.jpg" />
+    <Resource Include="ImageMovies\4.jpg" />
+    <Resource Include="ImageMovies\40.jpg" />
+    <Resource Include="ImageMovies\41.jpg" />
+    <Resource Include="ImageMovies\42.jpg" />
+    <Resource Include="ImageMovies\43.jpg" />
+    <Resource Include="ImageMovies\44.jpg" />
+    <Resource Include="ImageMovies\45.jpg" />
+    <Resource Include="ImageMovies\46.jpg" />
+    <Resource Include="ImageMovies\47.jpg" />
+    <Resource Include="ImageMovies\48.jpg" />
+    <Resource Include="ImageMovies\49.jpg" />
+    <Resource Include="ImageMovies\5.jpg" />
+    <Resource Include="ImageMovies\50.jpg" />
+    <Resource Include="ImageMovies\51.jpg" />
+    <Resource Include="ImageMovies\52.jpg" />
+    <Resource Include="ImageMovies\53.jpg" />
+    <Resource Include="ImageMovies\54.jpg" />
+    <Resource Include="ImageMovies\55.jpg" />
+    <Resource Include="ImageMovies\56.jpg" />
+    <Resource Include="ImageMovies\6.jpg" />
+    <Resource Include="ImageMovies\7.jpg" />
+    <Resource Include="ImageMovies\8.jpg" />
+    <Resource Include="ImageMovies\9.jpg" />
+    <Content Include="Models\QuanLyPhim.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhim.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QuanLyPhim.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhim.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhim.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyMovies.Views"
         
-        xmlns:m ="clr-namespace:QuanLyMovies.Models"
-         mc:Ignorable="d" Height="5550.9" Width="1920" WindowState="Maximized"
+        xmlns:m ="clr-namespace:QuanLyMovies.Models" WindowStyle="None"
+         mc:Ignorable="d" Height="5550.9" Width="1920" WindowState="Maximized" 
          WindowStartupLocation="CenterScreen">
     <!--<Window.Resources>
         <ResourceDictionary>
@@ -221,9 +221,9 @@
                 <RowDefinition Height="1300"/>
                 <RowDefinition Height="600"/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="-5,75,-20.2,645" Grid.RowSpan="2" >
+            <StackPanel Grid.RowSpan="2" >
                 <StackPanel.Background>
-                    <ImageBrush ImageSource="/background.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+                    <ImageBrush ImageSource="/Icon/background.jpg" Stretch="UniformToFill" Opacity="0.8"/>
                 </StackPanel.Background>
                 <Grid Height="90">
                     <Grid.ColumnDefinitions>
@@ -248,7 +248,7 @@
                             </Button.Resources>
                         </Button>
                     </StackPanel>
-                    <Image Height="100" Width="300" Source="/QuanLyMovies;component/logo.png"  Margin="50,20,0,0" HorizontalAlignment="Left"/>
+                    <Image Height="100" Width="300" Source="/Icon/logo.png"  Margin="50,20,0,0" HorizontalAlignment="Left"/>
                 </Grid>
 
                 <Grid Height="955" HorizontalAlignment="Center" Margin="0,200,0,0">
@@ -313,7 +313,7 @@
                         </Label>
                     </StackPanel>
                 </Grid>
-                <Image Margin="70,132,50,120" Source="/QuanLyMovies;component/Image1.png" Stretch="Fill" Grid.Column="1"/>
+                <Image Margin="70,132,50,120" Source="/Icon/Image1.png" Stretch="Fill" Grid.Column="1"/>
             </Grid>
 
             <Grid Grid.Row="2" Margin="0,10,0,0" Background="Black">
@@ -338,7 +338,7 @@
                         </Label>
                     </StackPanel>
                 </Grid>
-                <Image Margin="210,129,209,105" Source="/QuanLyMovies;component/Image3.png" Stretch="Fill"/>
+                <Image Margin="210,129,209,105" Source="/Icon/Image3.png" Stretch="Fill"/>
             </Grid>
 
             <Grid Grid.Row="3" Background="Black" Margin="0,10,0,0">
@@ -381,7 +381,7 @@
                         </Label>
                     </StackPanel>
                 </Grid>
-                <Image Margin="156,96,95,115" Source="/QuanLyMovies;component/Image2.png" Stretch="Fill"/>
+                <Image Margin="156,96,95,115" Source="/Icon/Image2.png" Stretch="Fill"/>
             </Grid>
 
             <Grid Margin="0,10,0,0" Grid.Row="5" Background="Black" Width="1950">
