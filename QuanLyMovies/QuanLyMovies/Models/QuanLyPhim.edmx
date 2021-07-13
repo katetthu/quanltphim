@@ -126,7 +126,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyPhimEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyPhimEntities8" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOAITHANHTOANs" EntityType="Self.LOAITHANHTOAN" />
           <EntitySet Name="PHIMs" EntityType="Self.PHIM" />
           <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
@@ -141,7 +141,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities7">
+        <EntityContainerMapping StorageEntityContainer="QuanLyPhimModelStoreContainer" CdmEntityContainer="QuanLyPhimEntities8">
           <EntitySetMapping Name="LOAITHANHTOANs">
             <EntityTypeMapping TypeName="QuanLyPhimModel.LOAITHANHTOAN">
               <MappingFragment StoreEntitySet="LOAITHANHTOAN">
